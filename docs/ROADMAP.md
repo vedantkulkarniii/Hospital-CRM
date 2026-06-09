@@ -5,36 +5,36 @@
 
 ## PHASE 1 — Project Setup
 
-- [ ] T-001 Initialize Git repository
-- [ ] T-002 Configure remote origin (GitHub)
-- [ ] T-003 Create root .gitignore
-- [ ] T-004 Initialize Node.js backend (npm init)
-- [ ] T-005 Initialize React frontend (Vite)
-- [ ] T-006 Configure ESLint (backend)
-- [ ] T-007 Configure Prettier (backend)
+- [x] T-001 Initialize Git repository
+- [x] T-002 Configure remote origin (GitHub)
+- [x] T-003 Create root .gitignore
+- [x] T-004 Initialize Node.js backend (npm init)
+- [x] T-005 Initialize React frontend (Vite)
+- [x] T-006 Configure ESLint (backend)
+- [x] T-007 Configure Prettier (backend)
 - [ ] T-008 Configure ESLint (frontend)
 - [ ] T-009 Configure Prettier (frontend)
-- [ ] T-010 Set up folder structure (backend: src/controllers, services, models, routes, middleware, utils, config)
-- [ ] T-011 Set up folder structure (frontend: src/components, pages, hooks, services, store, utils, assets)
-- [ ] T-012 Install and configure Express.js
-- [ ] T-013 Install and configure MongoDB + Mongoose
-- [ ] T-014 Create .env.example file
-- [ ] T-015 Configure dotenv
-- [ ] T-016 Create base server.js entry point
-- [ ] T-017 Create base app.js with middleware stack
-- [ ] T-018 Configure CORS policy
-- [ ] T-019 Configure Morgan HTTP logger
-- [ ] T-020 Configure Winston logger (file + console transport)
-- [ ] T-021 Create global error handler middleware
-- [ ] T-022 Create 404 not-found handler
-- [ ] T-023 Set up MongoDB connection utility
-- [ ] T-024 Create health-check route GET /api/health
-- [ ] T-025 Create README.md with project overview
-- [ ] T-026 Create CHANGELOG.md
-- [ ] T-027 Create docs/PROJECT_PROGRESS.md
-- [ ] T-028 Create docs/SPRINT_HISTORY.md
-- [ ] T-029 Configure Tailwind CSS (frontend)
-- [ ] T-030 Configure React Router DOM
+- [x] T-010 Set up folder structure (backend: src/controllers, services, models, routes, middleware, utils, config)
+- [x] T-011 Set up folder structure (frontend: src/components, pages, hooks, services, store, utils, assets)
+- [x] T-012 Install and configure Express.js
+- [x] T-013 Install and configure MongoDB + Mongoose
+- [x] T-014 Create .env.example file
+- [x] T-015 Configure dotenv
+- [x] T-016 Create base server.js entry point
+- [x] T-017 Create base app.js with middleware stack
+- [x] T-018 Configure CORS policy
+- [x] T-019 Configure Morgan HTTP logger
+- [x] T-020 Configure Winston logger (file + console transport)
+- [x] T-021 Create global error handler middleware
+- [x] T-022 Create 404 not-found handler
+- [x] T-023 Set up MongoDB connection utility
+- [x] T-024 Create health-check route GET /api/health
+- [x] T-025 Create README.md with project overview
+- [x] T-026 Create CHANGELOG.md
+- [x] T-027 Create docs/PROJECT_PROGRESS.md
+- [x] T-028 Create docs/SPRINT_HISTORY.md
+- [x] T-029 Configure Tailwind CSS (frontend)
+- [x] T-030 Configure React Router DOM
 
 ---
 
@@ -293,4 +293,4 @@
 
 ---
 
-*Total tasks: 220 | Completed: 0 | Last updated: Sprint 1*
+*Total tasks: 220 | Completed: 28 | Last updated: Sprint 1 Complete*
