@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
+const cookieParser = require('cookie-parser');
 
 const logger = require('./utils/logger');
 const { notFound, errorHandler } = require('./middleware/errorHandler');
@@ -37,6 +38,7 @@ app.use('/api', globalLimiter);
 // ─── Body Parsers ─────────────────────────────────────────────────────────────
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+app.use(cookieParser());
 
 // ─── Compression ──────────────────────────────────────────────────────────────
 app.use(compression());
@@ -49,7 +51,10 @@ app.use(morgan('combined', { stream: morganStream, skip: () => process.env.NODE_
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
 const healthRoute = require('./routes/health');
+const authRoutes = require('./routes/auth.routes');
+
 app.use('/api', healthRoute);
+app.use('/api/auth', authRoutes);
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────────
 app.use(notFound);
