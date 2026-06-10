@@ -40,31 +40,31 @@
 
 ## PHASE 2 — Authentication
 
-- [ ] T-031 Create User schema (Mongoose)
-- [ ] T-032 Add role enum to User schema (admin, doctor, receptionist, patient)
-- [ ] T-033 Add password hashing pre-save hook (bcrypt)
-- [ ] T-034 Create auth service — register function
-- [ ] T-035 Create auth service — login function
-- [ ] T-036 Create auth service — token refresh function
-- [ ] T-037 Create JWT utility (sign + verify)
-- [ ] T-038 Create auth controller (register, login, logout, refresh)
-- [ ] T-039 Create auth routes POST /api/auth/register
-- [ ] T-040 Create auth routes POST /api/auth/login
-- [ ] T-041 Create auth routes POST /api/auth/logout
-- [ ] T-042 Create auth routes POST /api/auth/refresh
-- [ ] T-043 Create authenticate middleware (JWT verification)
-- [ ] T-044 Create authorize middleware (role-based access)
-- [ ] T-045 Add input validation (express-validator) for auth routes
-- [ ] T-046 Implement refresh token rotation (store in DB)
+- [x] T-031 Create User schema (Mongoose)
+- [x] T-032 Add role enum to User schema (admin, doctor, receptionist, patient)
+- [x] T-033 Add password hashing pre-save hook (bcrypt)
+- [x] T-034 Create auth service — register function
+- [x] T-035 Create auth service — login function
+- [x] T-036 Create auth service — token refresh function
+- [x] T-037 Create JWT utility (sign + verify)
+- [x] T-038 Create auth controller (register, login, logout, refresh)
+- [x] T-039 Create auth routes POST /api/auth/register
+- [x] T-040 Create auth routes POST /api/auth/login
+- [x] T-041 Create auth routes POST /api/auth/logout
+- [x] T-042 Create auth routes POST /api/auth/refresh
+- [x] T-043 Create authenticate middleware (JWT verification)
+- [x] T-044 Create authorize middleware (role-based access)
+- [x] T-045 Add input validation (express-validator) for auth routes
+- [x] T-046 Implement refresh token rotation (store in DB)
 - [ ] T-047 Create frontend auth context (React Context API)
 - [ ] T-048 Create Login page UI
 - [ ] T-049 Create Register page UI
 - [ ] T-050 Implement protected route component
-- [ ] T-051 Create auth API service (axios)
-- [ ] T-052 Implement token auto-refresh interceptor (axios)
-- [ ] T-053 Create logout functionality + clear tokens
-- [ ] T-054 Add forgot-password route + email token generation
-- [ ] T-055 Add reset-password route + token verification
+- [x] T-051 Create auth API service (axios)
+- [x] T-052 Implement token auto-refresh interceptor (axios)
+- [x] T-053 Create logout functionality + clear tokens
+- [x] T-054 Add forgot-password route + email token generation
+- [x] T-055 Add reset-password route + token verification
 
 ---
 
@@ -293,4 +293,4 @@
 
 ---
 
-*Total tasks: 220 | Completed: 28 | Last updated: Sprint 1 Complete*
+*Total tasks: 220 | Completed: 50 | Last updated: Sprint 2 Complete*

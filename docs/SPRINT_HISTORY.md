@@ -13,43 +13,7 @@
 | Commits | 10 |
 | Status | ✅ Complete |
 
-### Tasks Completed
-
-- T-001 Initialize Git repository
-- T-002 Configure remote origin (GitHub)
-- T-003 Create root .gitignore
-- T-004 Initialize Node.js backend (npm init / package.json)
-- T-005 Initialize React frontend (Vite)
-- T-006 Configure ESLint (backend)
-- T-007 Configure Prettier (backend)
-- T-010 Set up backend folder structure
-- T-011 Set up frontend folder structure
-- T-012 Install and configure Express.js + all backend deps
-- T-013 Install and configure MongoDB + Mongoose
-- T-014 Create .env.example file
-- T-015 Configure dotenv
-- T-016 Create base server.js with graceful shutdown
-- T-017 Create base app.js with full middleware stack
-- T-018 Configure CORS policy
-- T-019 Configure Morgan HTTP logger
-- T-020 Configure Winston logger (file + console transport)
-- T-021 Create global error handler middleware
-- T-022 Create 404 not-found handler
-- T-023 Set up MongoDB connection utility
-- T-024 Create health-check route GET /api/health
-- T-025 Create README.md with project overview
-- T-026 Create CHANGELOG.md
-- T-027 Create docs/PROJECT_PROGRESS.md
-- T-028 Create docs/SPRINT_HISTORY.md
-- T-029 Configure Tailwind CSS (frontend)
-- T-030 Configure React Router DOM
-- T-207 ApiResponse utility (bonus — ahead of schedule)
-- T-051 Axios API client with interceptors (bonus)
-- T-052 Token auto-refresh interceptor (bonus)
-- Redux store + auth slice (bonus)
-
-### Commits in this sprint
-
+### Commits
 1. `docs: initialize project tracking files and 220-task roadmap`
 2. `chore: add root .gitignore for node, env, build, and OS files`
 3. `feat: initialize Node.js backend with package.json and all dependencies`
@@ -59,15 +23,64 @@
 7. `feat: create server.js with graceful shutdown and ApiResponse utility`
 8. `feat: initialize React frontend with Vite, Tailwind CSS, Redux, and folder structure`
 9. `feat: configure React Router, Redux store, auth slice, and app entry point`
-10. `docs: update sprint 1 progress and add axios API client with token refresh`
+10. `docs: update sprint 1 progress, roadmap, and add axios API client with token refresh interceptor`
 
 ---
 
-## Sprint 2 (Upcoming)
+## Sprint 2 ✅ COMPLETE
 
-- Starting Task: T-031 Create User schema (Mongoose)
-- Phase: Phase 2 — Authentication
-- Goal: Complete full authentication system (backend + frontend)
+| Field | Value |
+|---|---|
+| Date | Day 2 |
+| Phase | Phase 2 — Authentication |
+| Starting Task | T-031 |
+| Ending Task | T-055 |
+| Commits | 10 |
+| Status | ✅ Complete |
+
+### Tasks Completed
+- T-031 User schema with roles enum
+- T-032 Role enum (admin, doctor, receptionist, patient)
+- T-033 bcrypt pre-save hook
+- T-034 Auth service — register
+- T-035 Auth service — login
+- T-036 Auth service — token refresh
+- T-037 JWT utility (sign + verify access + refresh tokens)
+- T-038 Auth controller (7 endpoints)
+- T-039–T-042 Auth routes (register, login, logout, refresh)
+- T-043 Authenticate middleware
+- T-044 Authorize (RBAC) middleware
+- T-045 express-validator input validation
+- T-046 Refresh token rotation + reuse detection
+- T-048 Login page (React) with accessible form
+- T-049 Register page with password strength checker
+- T-050 Protected + Public route guards
+- T-051 Auth service (axios)
+- T-052 Token auto-refresh interceptor
+- T-053 Logout + cookie clear
+- T-054 Forgot password route
+- T-055 Reset password route
+- ForgotPasswordPage UI (bonus)
+
+### Commits
+1. `feat: create User schema with roles, bcrypt pre-save hook, and instance methods`
+2. `feat: create JWT utility with sign/verify for access and refresh tokens`
+3. `feat: implement auth service with register, login, refresh token rotation, logout, and password reset`
+4. `feat: add authenticate, authorize (RBAC), validate middleware, and auth input validators`
+5. `feat: create auth controller and routes (register, login, logout, refresh, forgot/reset-password)`
+6. `feat: add frontend auth service and useAuth hook with login, register, logout, and password reset`
+7. `feat: build Login page UI with form validation, password toggle, and accessible markup`
+8. `feat: build Register page UI with role selection, password strength checker, and validation`
+9. `feat: add ForgotPassword page, wire auth pages into App with lazy loading and route guards`
+10. `docs: update sprint 2 progress, roadmap completion, and sprint history`
+
+---
+
+## Sprint 3 (Upcoming)
+
+- Starting Task: T-056 Create dashboard layout component
+- Phase: Phase 3 — Dashboard + Phase 4 — Patient Management (start)
+- Goal: Build sidebar layout, dashboard stats API, and begin patient module
 
 ---
 
