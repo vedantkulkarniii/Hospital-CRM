@@ -4,10 +4,14 @@ import { useSelector } from 'react-redux';
 import { Loader2 } from 'lucide-react';
 import { selectIsAuthenticated } from './store/slices/authSlice.js';
 
+// ─── Layout Components ────────────────────────────────────────────────────────
+import DashboardLayout from './layouts/DashboardLayout.jsx';
+
 // ─── Lazy-loaded pages ────────────────────────────────────────────────────────
 const LoginPage = lazy(() => import('./pages/auth/LoginPage.jsx'));
 const RegisterPage = lazy(() => import('./pages/auth/RegisterPage.jsx'));
 const ForgotPasswordPage = lazy(() => import('./pages/auth/ForgotPasswordPage.jsx'));
+const DashboardPage = lazy(() => import('./pages/dashboard/DashboardPage.jsx'));
 
 // ─── Loading fallback ─────────────────────────────────────────────────────────
 function PageLoader() {
@@ -61,39 +65,20 @@ export default function App() {
           element={<PublicRoute><ForgotPasswordPage /></PublicRoute>}
         />
 
-        {/* ── Protected Routes ── */}
+        {/* ── Protected Routes with Layout ── */}
         <Route
           path="/dashboard"
-          element={<ProtectedRoute><PlaceholderPage title="Dashboard" /></ProtectedRoute>}
-        />
-        <Route
-          path="/patients/*"
-          element={<ProtectedRoute><PlaceholderPage title="Patients" /></ProtectedRoute>}
-        />
-        <Route
-          path="/doctors/*"
-          element={<ProtectedRoute><PlaceholderPage title="Doctors" /></ProtectedRoute>}
-        />
-        <Route
-          path="/appointments/*"
-          element={<ProtectedRoute><PlaceholderPage title="Appointments" /></ProtectedRoute>}
-        />
-        <Route
-          path="/billing/*"
-          element={<ProtectedRoute><PlaceholderPage title="Billing" /></ProtectedRoute>}
-        />
-        <Route
-          path="/reports"
-          element={<ProtectedRoute><PlaceholderPage title="Reports" /></ProtectedRoute>}
-        />
-        <Route
-          path="/inventory"
-          element={<ProtectedRoute><PlaceholderPage title="Inventory" /></ProtectedRoute>}
-        />
-        <Route
-          path="/settings"
-          element={<ProtectedRoute><PlaceholderPage title="Settings" /></ProtectedRoute>}
-        />
+          element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}
+        >
+          <Route index element={<DashboardPage />} />
+          <Route path="patients/*" element={<PlaceholderPage title="Patients" />} />
+          <Route path="doctors/*" element={<PlaceholderPage title="Doctors" />} />
+          <Route path="appointments/*" element={<PlaceholderPage title="Appointments" />} />
+          <Route path="billing/*" element={<PlaceholderPage title="Billing" />} />
+          <Route path="prescriptions/*" element={<PlaceholderPage title="Prescriptions" />} />
+          <Route path="reports" element={<PlaceholderPage title="Reports" />} />
+          <Route path="settings" element={<PlaceholderPage title="Settings" />} />
+        </Route>
 
         {/* ── Default ── */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
