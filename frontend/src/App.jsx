@@ -12,6 +12,13 @@ const LoginPage = lazy(() => import('./pages/auth/LoginPage.jsx'));
 const RegisterPage = lazy(() => import('./pages/auth/RegisterPage.jsx'));
 const ForgotPasswordPage = lazy(() => import('./pages/auth/ForgotPasswordPage.jsx'));
 const DashboardPage = lazy(() => import('./pages/dashboard/DashboardPage.jsx'));
+const PatientsPage = lazy(() => import('./pages/dashboard/PatientsPage.jsx'));
+const DoctorsPage = lazy(() => import('./pages/dashboard/DoctorsPage.jsx'));
+const AppointmentsPage = lazy(() => import('./pages/dashboard/AppointmentsPage.jsx'));
+const BillingPage = lazy(() => import('./pages/dashboard/BillingPage.jsx'));
+const PrescriptionsPage = lazy(() => import('./pages/dashboard/PrescriptionsPage.jsx'));
+const ReportsPage = lazy(() => import('./pages/dashboard/ReportsPage.jsx'));
+const SettingsPage = lazy(() => import('./pages/dashboard/SettingsPage.jsx'));
 
 // ─── Loading fallback ─────────────────────────────────────────────────────────
 function PageLoader() {
@@ -71,13 +78,13 @@ export default function App() {
           element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}
         >
           <Route index element={<DashboardPage />} />
-          <Route path="patients/*" element={<PlaceholderPage title="Patients" />} />
-          <Route path="doctors/*" element={<PlaceholderPage title="Doctors" />} />
-          <Route path="appointments/*" element={<PlaceholderPage title="Appointments" />} />
-          <Route path="billing/*" element={<PlaceholderPage title="Billing" />} />
-          <Route path="prescriptions/*" element={<PlaceholderPage title="Prescriptions" />} />
-          <Route path="reports" element={<PlaceholderPage title="Reports" />} />
-          <Route path="settings" element={<PlaceholderPage title="Settings" />} />
+          <Route path="patients" element={<PatientsPage />} />
+          <Route path="doctors" element={<DoctorsPage />} />
+          <Route path="appointments" element={<AppointmentsPage />} />
+          <Route path="billing" element={<BillingPage />} />
+          <Route path="prescriptions" element={<PrescriptionsPage />} />
+          <Route path="reports" element={<ReportsPage />} />
+          <Route path="settings" element={<SettingsPage />} />
         </Route>
 
         {/* ── Default ── */}
