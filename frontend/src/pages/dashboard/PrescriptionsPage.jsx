@@ -1,3 +1,6 @@
+import { FileText } from 'lucide-react';
+import EmptyState from '../../components/common/EmptyState';
+
 export default function PrescriptionsPage() {
   return (
     <div>
@@ -6,11 +9,12 @@ export default function PrescriptionsPage() {
         <p className="text-gray-600 mt-1">Manage patient prescriptions.</p>
       </div>
 
-      <div className="card">
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">Prescription management module coming soon...</p>
-        </div>
-      </div>
+      <EmptyState
+        icon={FileText}
+        title="No prescriptions yet"
+        description="Prescription management module is coming soon. You'll be able to create and manage patient prescriptions here."
+        action={{ label: 'Learn More' }}
+      />
     </div>
   );
 }

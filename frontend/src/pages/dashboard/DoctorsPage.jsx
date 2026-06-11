@@ -1,3 +1,6 @@
+import { Stethoscope } from 'lucide-react';
+import EmptyState from '../../components/common/EmptyState';
+
 export default function DoctorsPage() {
   return (
     <div>
@@ -6,11 +9,12 @@ export default function DoctorsPage() {
         <p className="text-gray-600 mt-1">Manage all doctors in the system.</p>
       </div>
 
-      <div className="card">
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">Doctor management module coming soon...</p>
-        </div>
-      </div>
+      <EmptyState
+        icon={Stethoscope}
+        title="No doctors yet"
+        description="Doctor management module is coming soon. You'll be able to add and manage doctor profiles, specializations, and schedules."
+        action={{ label: 'Learn More' }}
+      />
     </div>
   );
 }

@@ -1,3 +1,6 @@
+import { Calendar } from 'lucide-react';
+import EmptyState from '../../components/common/EmptyState';
+
 export default function AppointmentsPage() {
   return (
     <div>
@@ -6,11 +9,12 @@ export default function AppointmentsPage() {
         <p className="text-gray-600 mt-1">Manage all appointments in the system.</p>
       </div>
 
-      <div className="card">
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">Appointment management module coming soon...</p>
-        </div>
-      </div>
+      <EmptyState
+        icon={Calendar}
+        title="No appointments yet"
+        description="Appointment management module is coming soon. You'll be able to schedule, view, and manage all appointments here."
+        action={{ label: 'Learn More' }}
+      />
     </div>
   );
 }

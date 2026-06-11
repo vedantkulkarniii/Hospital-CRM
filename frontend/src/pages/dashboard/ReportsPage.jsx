@@ -1,3 +1,6 @@
+import { BarChart3 } from 'lucide-react';
+import EmptyState from '../../components/common/EmptyState';
+
 export default function ReportsPage() {
   return (
     <div>
@@ -6,11 +9,12 @@ export default function ReportsPage() {
         <p className="text-gray-600 mt-1">View hospital analytics and reports.</p>
       </div>
 
-      <div className="card">
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">Reports module coming soon...</p>
-        </div>
-      </div>
+      <EmptyState
+        icon={BarChart3}
+        title="No reports yet"
+        description="Reports module is coming soon. You'll be able to generate and view comprehensive hospital analytics and reports."
+        action={{ label: 'Learn More' }}
+      />
     </div>
   );
 }

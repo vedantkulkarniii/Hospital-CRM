@@ -1,3 +1,6 @@
+import { Users } from 'lucide-react';
+import EmptyState from '../../components/common/EmptyState';
+
 export default function PatientsPage() {
   return (
     <div>
@@ -6,11 +9,12 @@ export default function PatientsPage() {
         <p className="text-gray-600 mt-1">Manage all patients in the system.</p>
       </div>
 
-      <div className="card">
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">Patient management module coming soon...</p>
-        </div>
-      </div>
+      <EmptyState
+        icon={Users}
+        title="No patients yet"
+        description="Patient management module is coming soon. You'll be able to add, view, and manage all patient records here."
+        action={{ label: 'Learn More' }}
+      />
     </div>
   );
 }

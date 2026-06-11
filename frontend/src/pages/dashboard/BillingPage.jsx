@@ -1,3 +1,6 @@
+import { CreditCard } from 'lucide-react';
+import EmptyState from '../../components/common/EmptyState';
+
 export default function BillingPage() {
   return (
     <div>
@@ -6,11 +9,12 @@ export default function BillingPage() {
         <p className="text-gray-600 mt-1">Manage billing and invoices.</p>
       </div>
 
-      <div className="card">
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">Billing module coming soon...</p>
-        </div>
-      </div>
+      <EmptyState
+        icon={CreditCard}
+        title="No invoices yet"
+        description="Billing module is coming soon. You'll be able to create, manage, and track invoices and payments."
+        action={{ label: 'Learn More' }}
+      />
     </div>
   );
 }

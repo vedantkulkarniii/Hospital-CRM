@@ -1,3 +1,6 @@
+import { Settings } from 'lucide-react';
+import EmptyState from '../../components/common/EmptyState';
+
 export default function SettingsPage() {
   return (
     <div>
@@ -6,11 +9,12 @@ export default function SettingsPage() {
         <p className="text-gray-600 mt-1">Manage your profile and preferences.</p>
       </div>
 
-      <div className="card">
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">Settings module coming soon...</p>
-        </div>
-      </div>
+      <EmptyState
+        icon={Settings}
+        title="Settings coming soon"
+        description="Settings module is coming soon. You'll be able to manage your profile, preferences, and account settings."
+        action={{ label: 'Learn More' }}
+      />
     </div>
   );
 }
