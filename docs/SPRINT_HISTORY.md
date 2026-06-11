@@ -40,27 +40,16 @@
 
 ### Tasks Completed
 - T-031 User schema with roles enum
-- T-032 Role enum (admin, doctor, receptionist, patient)
-- T-033 bcrypt pre-save hook
-- T-034 Auth service — register
-- T-035 Auth service — login
-- T-036 Auth service — token refresh
-- T-037 JWT utility (sign + verify access + refresh tokens)
-- T-038 Auth controller (7 endpoints)
-- T-039–T-042 Auth routes (register, login, logout, refresh)
-- T-043 Authenticate middleware
-- T-044 Authorize (RBAC) middleware
+- T-032–T-033 Role enum + bcrypt pre-save hook
+- T-034–T-036 Auth service (register, login, refresh)
+- T-037 JWT utility
+- T-038–T-042 Auth controller + routes
+- T-043–T-044 Authenticate + Authorize middleware
 - T-045 express-validator input validation
 - T-046 Refresh token rotation + reuse detection
-- T-048 Login page (React) with accessible form
-- T-049 Register page with password strength checker
-- T-050 Protected + Public route guards
-- T-051 Auth service (axios)
-- T-052 Token auto-refresh interceptor
-- T-053 Logout + cookie clear
-- T-054 Forgot password route
-- T-055 Reset password route
-- ForgotPasswordPage UI (bonus)
+- T-048–T-050 Login, Register, ForgotPassword pages + route guards
+- T-051–T-053 Axios auth service + interceptor + logout
+- T-054–T-055 Forgot/reset password routes
 
 ### Commits
 1. `feat: create User schema with roles, bcrypt pre-save hook, and instance methods`
@@ -76,11 +65,52 @@
 
 ---
 
-## Sprint 3 (Upcoming)
+## Sprint 3 ✅ COMPLETE
 
-- Starting Task: T-056 Create dashboard layout component
-- Phase: Phase 3 — Dashboard + Phase 4 — Patient Management (start)
-- Goal: Build sidebar layout, dashboard stats API, and begin patient module
+| Field | Value |
+|---|---|
+| Date | Day 3 |
+| Phase | Phase 3 — Dashboard + Phase 4 start |
+| Starting Task | T-056 |
+| Ending Task | T-068 |
+| Commits | 11 |
+| Status | ✅ Complete |
+
+### Tasks Completed
+- T-056 Dashboard layout component (sidebar + topbar)
+- T-057 Responsive sidebar with all navigation links
+- T-058 Topbar with user info, role badge + logout
+- T-059 Stats card component
+- T-060 GET /api/dashboard/stats route
+- T-061 Dashboard service (aggregate counts: patients, doctors, appointments)
+- T-062 Recent appointments widget (UI)
+- T-063 Recent patients widget (UI)
+- T-064 Area chart — appointments trend (Recharts)
+- T-065 Pie chart — appointment status breakdown (Recharts)
+- T-066 Role-based dashboard views
+- T-067 Loading skeletons for dashboard cards
+- T-068 Patient schema (Mongoose) — full sub-schemas, soft delete, text search, patientId
+
+### Commits
+1. `feat: create dashboard layout component with sidebar and topbar`
+2. `feat: create dashboard stats API endpoint and route`
+3. `feat: add dashboard service and module pages with routing`
+4. `feat: create chart components (area chart and pie chart) for dashboard`
+5. `feat: add dashboard state management, skeleton loaders, and hooks`
+6. `fix: downgrade to Tailwind CSS v3 for stable styling`
+7. `feat: integrate dashboard stats API with loading and error states`
+8. `feat: add dashboard footer, empty state component, and improve module pages UX`
+9. `feat: create reusable UI components (Modal, Alert, Table, LoadingSpinner)`
+10. `feat: create Patient schema with medical history, soft delete, text search indexes, and auto patientId`
+11. `docs: update sprint 3 progress, roadmap, and sprint history`
+
+---
+
+## Sprint 4 (Upcoming)
+
+- Starting Task: T-069 Create patient service — createPatient
+- Phase: Phase 4 — Patient Management (continue)
+- Goal: Complete full patient CRUD backend + frontend (services, controller, routes, list page, forms, detail page)
 
 ---
 

@@ -4,48 +4,62 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 2 — Authentication (complete) |
-| Current Sprint | Sprint 2 (complete) |
+| Current Phase | Phase 4 — Patient Management |
+| Current Sprint | Sprint 3 (complete) → Sprint 4 next |
 | Total Tasks | 220 |
-| Completed Tasks | 50 |
-| Remaining Tasks | 170 |
-| Total Commits | 20 |
-| Completion % | 22.7% |
-| Last Completed Task | T-055 Reset-password route + token verification |
-| Next Task | T-056 Create dashboard layout component |
+| Completed Tasks | 57 |
+| Remaining Tasks | 163 |
+| Total Commits | 31 |
+| Completion % | 25.9% |
+| Last Completed Task | T-068 Create Patient schema (Mongoose) |
+| Next Task | T-069 Create patient service — createPatient |
 
 ---
 
 ## Completed Tasks
 
-### Phase 1 — Project Setup
-- [x] T-001 through T-030 (all setup tasks — see Sprint 1)
+### Phase 1 — Project Setup ✅ 100%
+- [x] T-001 through T-030 (all setup tasks)
 
-### Phase 2 — Authentication
-- [x] T-031 Create User schema (Mongoose)
-- [x] T-032 Add role enum to User schema
-- [x] T-033 Add password hashing pre-save hook (bcrypt)
+### Phase 2 — Authentication ✅ ~96%
+- [x] T-031 Create User schema
+- [x] T-032 Role enum (admin, doctor, receptionist, patient)
+- [x] T-033 bcrypt pre-save hook
 - [x] T-034 Auth service — register
 - [x] T-035 Auth service — login
 - [x] T-036 Auth service — token refresh
-- [x] T-037 JWT utility (sign + verify)
-- [x] T-038 Auth controller (register, login, logout, refresh)
-- [x] T-039 POST /api/auth/register
-- [x] T-040 POST /api/auth/login
-- [x] T-041 POST /api/auth/logout
-- [x] T-042 POST /api/auth/refresh
-- [x] T-043 Authenticate middleware (JWT verification)
-- [x] T-044 Authorize middleware (RBAC)
-- [x] T-045 Input validation (express-validator)
-- [x] T-046 Refresh token rotation (DB stored, hashed)
+- [x] T-037 JWT utility
+- [x] T-038 Auth controller
+- [x] T-039–T-042 Auth routes
+- [x] T-043 Authenticate middleware
+- [x] T-044 Authorize (RBAC) middleware
+- [x] T-045 Input validation
+- [x] T-046 Refresh token rotation
 - [x] T-048 Login page UI
 - [x] T-049 Register page UI
 - [x] T-050 Protected route component
 - [x] T-051 Auth API service (axios)
 - [x] T-052 Token auto-refresh interceptor
-- [x] T-053 Logout functionality + clear tokens
-- [x] T-054 Forgot-password route + email token generation
-- [x] T-055 Reset-password route + token verification
+- [x] T-053 Logout + cookie clear
+- [x] T-054 Forgot-password route
+- [x] T-055 Reset-password route
+
+### Phase 3 — Dashboard ✅ 100%
+- [x] T-056 Dashboard layout (sidebar + topbar)
+- [x] T-057 Responsive sidebar with nav links
+- [x] T-058 Topbar with user info + logout
+- [x] T-059 Stats card component
+- [x] T-060 GET /api/dashboard/stats
+- [x] T-061 Dashboard service (aggregate counts)
+- [x] T-062 Recent appointments widget
+- [x] T-063 Recent patients widget
+- [x] T-064 Area chart — appointments trend
+- [x] T-065 Pie chart — appointment status
+- [x] T-066 Role-based dashboard views
+- [x] T-067 Loading skeletons
+
+### Phase 4 — Patient Management (In Progress)
+- [x] T-068 Patient schema (Mongoose) — sub-schemas, soft delete, text index, patientId
 
 ---
 
@@ -53,10 +67,10 @@
 
 | Phase | Tasks | Done | % |
 |---|---|---|---|
-| Phase 1 — Project Setup | 30 | 28 | 93% |
-| Phase 2 — Authentication | 25 | 22 | 88% |
-| Phase 3 — Dashboard | 12 | 0 | 0% |
-| Phase 4 — Patient Management | 17 | 0 | 0% |
+| Phase 1 — Project Setup | 30 | 30 | 100% |
+| Phase 2 — Authentication | 25 | 21 | 84% |
+| Phase 3 — Dashboard | 12 | 12 | 100% |
+| Phase 4 — Patient Management | 17 | 1 | 6% |
 | Phase 5 — Doctor Management | 15 | 0 | 0% |
 | Phase 6 — Appointment Management | 16 | 0 | 0% |
 | Phase 7 — Prescription Management | 12 | 0 | 0% |
@@ -70,4 +84,4 @@
 
 ---
 
-*Last updated: Sprint 2 — Complete*
+*Last updated: Sprint 3 — Complete*

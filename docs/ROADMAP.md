@@ -68,26 +68,26 @@
 
 ---
 
-## PHASE 3 — Dashboard
+## PHASE 3 — Dashboard ✅
 
-- [ ] T-056 Create dashboard layout component (sidebar + topbar)
-- [ ] T-057 Create responsive sidebar with navigation links
-- [ ] T-058 Create topbar with user info + logout
-- [ ] T-059 Create stats card component
-- [ ] T-060 Create GET /api/dashboard/stats route
-- [ ] T-061 Create dashboard service (aggregate counts: patients, doctors, appointments today)
-- [ ] T-062 Implement recent appointments widget
-- [ ] T-063 Implement recent patients widget
-- [ ] T-064 Create area chart component (appointments trend — last 7 days)
-- [ ] T-065 Create pie chart component (appointment status breakdown)
-- [ ] T-066 Implement role-based dashboard views (admin vs doctor vs receptionist)
-- [ ] T-067 Add loading skeletons for dashboard cards
+- [x] T-056 Create dashboard layout component (sidebar + topbar)
+- [x] T-057 Create responsive sidebar with navigation links
+- [x] T-058 Create topbar with user info + logout
+- [x] T-059 Create stats card component
+- [x] T-060 Create GET /api/dashboard/stats route
+- [x] T-061 Create dashboard service (aggregate counts: patients, doctors, appointments today)
+- [x] T-062 Implement recent appointments widget
+- [x] T-063 Implement recent patients widget
+- [x] T-064 Create area chart component (appointments trend — last 7 days)
+- [x] T-065 Create pie chart component (appointment status breakdown)
+- [x] T-066 Implement role-based dashboard views (admin vs doctor vs receptionist)
+- [x] T-067 Add loading skeletons for dashboard cards
 
 ---
 
 ## PHASE 4 — Patient Management
 
-- [ ] T-068 Create Patient schema (name, dob, gender, contact, address, bloodGroup, medicalHistory, createdBy)
+- [x] T-068 Create Patient schema (name, dob, gender, contact, address, bloodGroup, medicalHistory, createdBy)
 - [ ] T-069 Create patient service — createPatient
 - [ ] T-070 Create patient service — getPatients (pagination + search + filter)
 - [ ] T-071 Create patient service — getPatientById
@@ -293,4 +293,4 @@
 
 ---
 
-*Total tasks: 220 | Completed: 50 | Last updated: Sprint 2 Complete*
+*Total tasks: 220 | Completed: 57 | Last updated: Sprint 3 Complete*
