@@ -1,5 +1,7 @@
 import { Zap, Users, Calendar, TrendingUp } from 'lucide-react';
-import StatsCard from '../components/dashboard/StatsCard';
+import StatsCard from '../../components/dashboard/StatsCard';
+import AppointmentTrendChart from '../../components/charts/AppointmentTrendChart';
+import AppointmentStatusChart from '../../components/charts/AppointmentStatusChart';
 
 export default function DashboardPage() {
   // Placeholder stats - will be populated from API
@@ -29,6 +31,12 @@ export default function DashboardPage() {
             color={stat.color}
           />
         ))}
+      </div>
+
+      {/* Charts Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <AppointmentTrendChart />
+        <AppointmentStatusChart />
       </div>
 
       {/* Widgets Section */}
