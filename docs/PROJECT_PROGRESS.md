@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 4 — Patient Management |
-| Current Sprint | Sprint 3 (complete) → Sprint 4 next |
+| Current Phase | Phase 5 — Doctor Management |
+| Current Sprint | Sprint 4 (complete) → Sprint 5 next |
 | Total Tasks | 220 |
-| Completed Tasks | 57 |
-| Remaining Tasks | 163 |
-| Total Commits | 31 |
-| Completion % | 25.9% |
-| Last Completed Task | T-068 Create Patient schema (Mongoose) |
-| Next Task | T-069 Create patient service — createPatient |
+| Completed Tasks | 73 |
+| Remaining Tasks | 147 |
+| Total Commits | 32 |
+| Completion % | 33.2% |
+| Last Completed Task | T-084 Add patient state management (Redux Toolkit slice) |
+| Next Task | T-085 Create Doctor schema (userId ref, specialization, qualification, experience, availability, consultationFee) |
 
 ---
 
@@ -58,8 +58,8 @@
 - [x] T-066 Role-based dashboard views
 - [x] T-067 Loading skeletons
 
-### Phase 4 — Patient Management (In Progress)
-- [x] T-068 Patient schema (Mongoose) — sub-schemas, soft delete, text index, patientId
+### Phase 4 — Patient Management ✅ 100%
+- [x] T-068 through T-084 (all patient management tasks)
 
 ---
 
@@ -70,7 +70,7 @@
 | Phase 1 — Project Setup | 30 | 30 | 100% |
 | Phase 2 — Authentication | 25 | 21 | 84% |
 | Phase 3 — Dashboard | 12 | 12 | 100% |
-| Phase 4 — Patient Management | 17 | 1 | 6% |
+| Phase 4 — Patient Management | 17 | 17 | 100% |
 | Phase 5 — Doctor Management | 15 | 0 | 0% |
 | Phase 6 — Appointment Management | 16 | 0 | 0% |
 | Phase 7 — Prescription Management | 12 | 0 | 0% |
@@ -84,4 +84,4 @@
 
 ---
 
-*Last updated: Sprint 3 — Complete*
+*Last updated: Sprint 4 — Complete*

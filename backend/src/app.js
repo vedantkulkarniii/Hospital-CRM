@@ -53,10 +53,14 @@ app.use(morgan('combined', { stream: morganStream, skip: () => process.env.NODE_
 const healthRoute = require('./routes/health');
 const authRoutes = require('./routes/auth.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
+const patientRoutes = require('./routes/patient.routes');
+const doctorRoutes = require('./routes/doctor.routes');
 
 app.use('/api', healthRoute);
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/patients', patientRoutes);
+app.use('/api/doctors', doctorRoutes);
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────────
 app.use(notFound);

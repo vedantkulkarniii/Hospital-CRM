@@ -88,22 +88,22 @@
 ## PHASE 4 — Patient Management
 
 - [x] T-068 Create Patient schema (name, dob, gender, contact, address, bloodGroup, medicalHistory, createdBy)
-- [ ] T-069 Create patient service — createPatient
-- [ ] T-070 Create patient service — getPatients (pagination + search + filter)
-- [ ] T-071 Create patient service — getPatientById
-- [ ] T-072 Create patient service — updatePatient
-- [ ] T-073 Create patient service — deletePatient (soft delete)
-- [ ] T-074 Create patient controller
-- [ ] T-075 Create patient routes (CRUD)
-- [ ] T-076 Add input validation for patient routes
-- [ ] T-077 Create patient list page (frontend) with table + pagination
-- [ ] T-078 Create patient search + filter bar
-- [ ] T-079 Create add patient modal / form
-- [ ] T-080 Create edit patient modal / form
-- [ ] T-081 Create patient detail page
-- [ ] T-082 Create patient medical history section
-- [ ] T-083 Implement patient API service (axios)
-- [ ] T-084 Add patient state management (Redux Toolkit slice)
+- [x] T-069 Create patient service — createPatient
+- [x] T-070 Create patient service — getPatients (pagination + search + filter)
+- [x] T-071 Create patient service — getPatientById
+- [x] T-072 Create patient service — updatePatient
+- [x] T-073 Create patient service — deletePatient (soft delete)
+- [x] T-074 Create patient controller
+- [x] T-075 Create patient routes (CRUD)
+- [x] T-076 Add input validation for patient routes
+- [x] T-077 Create patient list page (frontend) with table + pagination
+- [x] T-078 Create patient search + filter bar
+- [x] T-079 Create add patient modal / form
+- [x] T-080 Create edit patient modal / form
+- [x] T-081 Create patient detail page
+- [x] T-082 Create patient medical history section
+- [x] T-083 Implement patient API service (axios)
+- [x] T-084 Add patient state management (Redux Toolkit slice)
 
 ---
 
