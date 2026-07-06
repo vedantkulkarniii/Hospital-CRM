@@ -5,14 +5,14 @@
 | Field | Value |
 |---|---|
 | Current Phase | Phase 5 — Doctor Management |
-| Current Sprint | Sprint 4 (complete) → Sprint 5 next |
+| Current Sprint | Sprint 5 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 73 |
-| Remaining Tasks | 147 |
-| Total Commits | 32 |
-| Completion % | 33.2% |
-| Last Completed Task | T-084 Add patient state management (Redux Toolkit slice) |
-| Next Task | T-085 Create Doctor schema (userId ref, specialization, qualification, experience, availability, consultationFee) |
+| Completed Tasks | 82 |
+| Remaining Tasks | 138 |
+| Total Commits | 34 |
+| Completion % | 37.3% |
+| Last Completed Task | T-099 Add doctor state (Redux Toolkit slice) |
+| Next Task | T-100 Create Appointment schema |
 
 ---
 
@@ -61,6 +61,23 @@
 ### Phase 4 — Patient Management ✅ 100%
 - [x] T-068 through T-084 (all patient management tasks)
 
+### Phase 5 — Doctor Management ✅ 100%
+- [x] T-085 Create Doctor schema (userId ref, specialization, qualifications, experience, availability, consultationFee)
+- [x] T-086 Create doctor service — createDoctor
+- [x] T-087 Create doctor service — getDoctors (pagination + filter by specialization)
+- [x] T-088 Create doctor service — getDoctorById
+- [x] T-089 Create doctor service — updateDoctor
+- [x] T-090 Create doctor service — deleteDoctor (soft delete)
+- [x] T-091 Create doctor controller
+- [x] T-092 Create doctor routes (CRUD)
+- [x] T-093 Create doctor list page (frontend)
+- [x] T-094 Create doctor profile card component
+- [x] T-095 Create add/edit doctor form (updated to match schema)
+- [x] T-096 Create doctor detail page with schedule view
+- [x] T-097 Implement doctor availability scheduler UI
+- [x] T-098 Add doctor API service (axios)
+- [x] T-099 Add doctor state (Redux Toolkit slice)
+
 ---
 
 ## Phase Completion
@@ -71,7 +88,7 @@
 | Phase 2 — Authentication | 25 | 21 | 84% |
 | Phase 3 — Dashboard | 12 | 12 | 100% |
 | Phase 4 — Patient Management | 17 | 17 | 100% |
-| Phase 5 — Doctor Management | 15 | 0 | 0% |
+| Phase 5 — Doctor Management | 15 | 15 | 100% |
 | Phase 6 — Appointment Management | 16 | 0 | 0% |
 | Phase 7 — Prescription Management | 12 | 0 | 0% |
 | Phase 8 — Billing System | 15 | 0 | 0% |
