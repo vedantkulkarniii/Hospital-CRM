@@ -10,7 +10,8 @@
     "lint:fix": "eslint src --ext .js --fix",
     "format": "prettier --write src/**/*.js",
     "test": "jest --runInBand --detectOpenHandles",
-    "test:coverage": "jest --coverage --runInBand --detectOpenHandles"
+    "test:coverage": "jest --coverage --runInBand --detectOpenHandles",
+    "seed": "node src/scripts/seedTestData.js"
   },
   "keywords": [
     "hospital",
