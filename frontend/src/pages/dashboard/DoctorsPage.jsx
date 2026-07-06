@@ -17,6 +17,7 @@ import {
 import { selectCurrentUser } from '../../store/slices/authSlice';
 import DoctorFormModal from '../../components/doctors/DoctorFormModal';
 import Alert from '../../components/common/Alert';
+import api from '../../services/api';
 
 export default function DoctorsPage() {
   const dispatch = useDispatch();
@@ -34,6 +35,18 @@ export default function DoctorsPage() {
   const [editingDoctor, setEditingDoctor] = useState(null);
   const [formSubmitError, setFormSubmitError] = useState(null);
   const [formLoading, setFormLoading] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  const fetchUsers = useCallback(async () => {
+    try {
+      // Fetch only users with doctor role
+      const response = await api.get('/auth/users', { params: { role: 'doctor' } });
+      setUsers(response.data?.data || []);
+    } catch (err) {
+      // Silently fail, users list is optional
+      console.error('Failed to fetch users:', err);
+    }
+  }, []);
 
   const fetchDoctors = useCallback(async () => {
     try {
@@ -54,7 +67,8 @@ export default function DoctorsPage() {
 
   useEffect(() => {
     fetchDoctors();
-  }, [fetchDoctors]);
+    fetchUsers();
+  }, [fetchDoctors, fetchUsers]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -134,13 +148,28 @@ export default function DoctorsPage() {
           <div className="relative">
             <label className="form-label">Search Doctors</label>
             <div className="relative">
-              <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by name, specialization or phone..." className="form-input pl-10" />
+              <input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search by name, specialization or phone..."
+                className="form-input pl-10"
+              />
               <Search className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
             </div>
           </div>
           <div>
             <label className="form-label">Specialization</label>
-            <input type="text" value={specialization} onChange={(e) => { setSpecialization(e.target.value); setPage(1); }} placeholder="e.g. Cardiology" className="form-input" />
+            <input
+              type="text"
+              value={specialization}
+              onChange={(e) => {
+                setSpecialization(e.target.value);
+                setPage(1);
+              }}
+              placeholder="e.g. Cardiology"
+              className="form-input"
+            />
           </div>
         </form>
       </div>
@@ -167,8 +196,9 @@ export default function DoctorsPage() {
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Doctor ID</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Name</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Specialization</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Experience</th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Fee</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Contact</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Availability</th>
                   <th className="px-6 py-3 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
@@ -176,22 +206,35 @@ export default function DoctorsPage() {
                 {doctors.map((doctor) => (
                   <tr key={doctor._id} className="hover:bg-gray-50/50 transition">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-primary-600">{doctor.doctorId}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">{doctor.firstName} {doctor.lastName}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm font-bold text-gray-900">
+                        {doctor.userId?.firstName} {doctor.userId?.lastName}
+                      </div>
+                    </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doctor.specialization}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doctor.yearsOfExperience} years</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">₹{doctor.consultationFee}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                       <div>{doctor.phone}</div>
-                      <div className="text-xs text-gray-400 mt-0.5">{doctor.email || 'No Email'}</div>
+                      <div className="text-xs text-gray-400 mt-0.5">{doctor.userId?.email || 'No Email'}</div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doctor.availability || 'Available'}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <div className="flex items-center justify-end gap-2">
                         {isStaff && (
-                          <button onClick={() => handleEditDoctor(doctor)} className="p-1.5 hover:bg-blue-50 rounded-lg text-blue-600 transition" title="Edit Record">
+                          <button
+                            onClick={() => handleEditDoctor(doctor)}
+                            className="p-1.5 hover:bg-blue-50 rounded-lg text-blue-600 transition"
+                            title="Edit Record"
+                          >
                             <Edit2 size={16} />
                           </button>
                         )}
                         {isAdmin && (
-                          <button onClick={() => handleDeleteDoctor(doctor._id)} className="p-1.5 hover:bg-red-50 rounded-lg text-red-600 transition" title="Delete Record">
+                          <button
+                            onClick={() => handleDeleteDoctor(doctor._id)}
+                            className="p-1.5 hover:bg-red-50 rounded-lg text-red-600 transition"
+                            title="Delete Record"
+                          >
                             <Trash2 size={16} />
                           </button>
                         )}
@@ -205,12 +248,22 @@ export default function DoctorsPage() {
 
           {pagination.totalPages > 1 && (
             <div className="px-6 py-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
-              <span className="text-sm text-gray-600">Page {pagination.page} of {pagination.totalPages}</span>
+              <span className="text-sm text-gray-600">
+                Page {pagination.page} of {pagination.totalPages}
+              </span>
               <div className="flex items-center gap-2">
-                <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page <= 1} className="p-2 rounded-lg border border-gray-200 hover:bg-white disabled:opacity-50">
+                <button
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={page <= 1}
+                  className="p-2 rounded-lg border border-gray-200 hover:bg-white disabled:opacity-50"
+                >
                   <ChevronLeft size={16} />
                 </button>
-                <button onClick={() => setPage((p) => p + 1)} disabled={page >= pagination.totalPages} className="p-2 rounded-lg border border-gray-200 hover:bg-white disabled:opacity-50">
+                <button
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={page >= pagination.totalPages}
+                  className="p-2 rounded-lg border border-gray-200 hover:bg-white disabled:opacity-50"
+                >
                   <ChevronRight size={16} />
                 </button>
               </div>
@@ -219,7 +272,15 @@ export default function DoctorsPage() {
         </div>
       )}
 
-      <DoctorFormModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} onSubmit={handleFormSubmit} doctor={editingDoctor} isLoading={formLoading} error={formSubmitError} />
+      <DoctorFormModal
+        isOpen={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        onSubmit={handleFormSubmit}
+        doctor={editingDoctor}
+        isLoading={formLoading}
+        error={formSubmitError}
+        users={users}
+      />
     </div>
   );
 }

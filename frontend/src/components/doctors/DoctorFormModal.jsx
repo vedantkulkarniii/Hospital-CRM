@@ -1,21 +1,43 @@
 import { useState } from 'react';
 import Modal from '../common/Modal';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Plus, Trash2 } from 'lucide-react';
 import Alert from '../common/Alert';
 
+const SPECIALIZATIONS = [
+  'General Practice',
+  'Cardiology',
+  'Dermatology',
+  'Neurology',
+  'Orthopedics',
+  'Pediatrics',
+  'Psychiatry',
+  'Surgery',
+  'Ophthalmology',
+  'ENT',
+  'Gastroenterology',
+  'Pulmonology',
+  'Oncology',
+  'Nephrology',
+  'Rheumatology',
+  'Urology',
+  'Other',
+];
+
 const INITIAL_FORM_STATE = {
-  firstName: '',
-  lastName: '',
+  userId: '',
   specialization: '',
-  qualification: '',
-  experience: 0,
-  consultationFee: 0,
+  qualifications: [{ degree: '', institution: '', yearObtained: new Date().getFullYear(), certificateNumber: '' }],
+  yearsOfExperience: 0,
+  licenseNumber: '',
   phone: '',
-  email: '',
-  availability: 'Available',
+  consultationFee: 0,
+  bio: '',
+  department: '',
+  officeAddress: '',
+  availability: [],
 };
 
-export default function DoctorFormModal({ isOpen, onClose, onSubmit, doctor = null, isLoading = false, error = null }) {
+export default function DoctorFormModal({ isOpen, onClose, onSubmit, doctor = null, isLoading = false, error = null, users = [] }) {
   const [formData, setFormData] = useState(INITIAL_FORM_STATE);
   const [errors, setErrors] = useState({});
   const [prevDoctor, setPrevDoctor] = useState(null);
@@ -27,15 +49,17 @@ export default function DoctorFormModal({ isOpen, onClose, onSubmit, doctor = nu
     setFormData(
       doctor
         ? {
-            firstName: doctor.firstName || '',
-            lastName: doctor.lastName || '',
+            userId: doctor.userId?._id || '',
             specialization: doctor.specialization || '',
-            qualification: doctor.qualification || '',
-            experience: doctor.experience || 0,
-            consultationFee: doctor.consultationFee || 0,
+            qualifications: doctor.qualifications || [{ degree: '', institution: '', yearObtained: new Date().getFullYear(), certificateNumber: '' }],
+            yearsOfExperience: doctor.yearsOfExperience || 0,
+            licenseNumber: doctor.licenseNumber || '',
             phone: doctor.phone || '',
-            email: doctor.email || '',
-            availability: doctor.availability || 'Available',
+            consultationFee: doctor.consultationFee || 0,
+            bio: doctor.bio || '',
+            department: doctor.department || '',
+            officeAddress: doctor.officeAddress || '',
+            availability: doctor.availability || [],
           }
         : INITIAL_FORM_STATE,
     );
@@ -44,16 +68,22 @@ export default function DoctorFormModal({ isOpen, onClose, onSubmit, doctor = nu
 
   const validate = () => {
     const errs = {};
-    if (!formData.firstName.trim()) errs.firstName = 'First name is required.';
-    if (!formData.lastName.trim()) errs.lastName = 'Last name is required.';
+    if (!formData.userId) errs.userId = 'User is required.';
     if (!formData.specialization.trim()) errs.specialization = 'Specialization is required.';
+    if (!formData.licenseNumber.trim()) errs.licenseNumber = 'License number is required.';
     if (!formData.phone.trim()) {
       errs.phone = 'Phone number is required.';
     } else if (!/^[0-9+\-\s()]{7,20}$/.test(formData.phone)) {
       errs.phone = 'Please provide a valid phone number.';
     }
-    if (formData.email && !/^\S+@\S+\.\S+$/.test(formData.email)) {
-      errs.email = 'Please enter a valid email address.';
+    if (formData.yearsOfExperience < 0 || formData.yearsOfExperience > 80) {
+      errs.yearsOfExperience = 'Years of experience must be between 0 and 80.';
+    }
+    if (formData.consultationFee < 0) {
+      errs.consultationFee = 'Consultation fee must be a non-negative number.';
+    }
+    if (!formData.qualifications || formData.qualifications.length === 0) {
+      errs.qualifications = 'At least one qualification is required.';
     }
     return errs;
   };
@@ -63,6 +93,31 @@ export default function DoctorFormModal({ isOpen, onClose, onSubmit, doctor = nu
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const handleQualificationChange = (index, field, value) => {
+    const newQualifications = [...formData.qualifications];
+    newQualifications[index] = { ...newQualifications[index], [field]: value };
+    setFormData((prev) => ({ ...prev, qualifications: newQualifications }));
+  };
+
+  const addQualification = () => {
+    setFormData((prev) => ({
+      ...prev,
+      qualifications: [
+        ...prev.qualifications,
+        { degree: '', institution: '', yearObtained: new Date().getFullYear(), certificateNumber: '' },
+      ],
+    }));
+  };
+
+  const removeQualification = (index) => {
+    if (formData.qualifications.length > 1) {
+      setFormData((prev) => ({
+        ...prev,
+        qualifications: prev.qualifications.filter((_, i) => i !== index),
+      }));
     }
   };
 
@@ -76,7 +131,7 @@ export default function DoctorFormModal({ isOpen, onClose, onSubmit, doctor = nu
 
     onSubmit({
       ...formData,
-      experience: Number(formData.experience) || 0,
+      yearsOfExperience: Number(formData.yearsOfExperience) || 0,
       consultationFee: Number(formData.consultationFee) || 0,
     });
   };
@@ -100,54 +155,244 @@ export default function DoctorFormModal({ isOpen, onClose, onSubmit, doctor = nu
   );
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={doctor ? 'Edit Doctor Record' : 'Add New Doctor'} size="2xl" footer={footer}>
-      <form id="doctor-form" onSubmit={handleSubmit} className="space-y-6 max-h-[60vh] overflow-y-auto pr-2">
+    <Modal isOpen={isOpen} onClose={onClose} title={doctor ? 'Edit Doctor Profile' : 'Add New Doctor'} size="2xl" footer={footer}>
+      <form id="doctor-form" onSubmit={handleSubmit} className="space-y-6 max-h-[70vh] overflow-y-auto pr-2">
         {error && <Alert type="error" message={error} dismissible={false} />}
 
+        {/* User Selection */}
+        <div>
+          <label className="form-label" htmlFor="userId">
+            Select User *
+          </label>
+          <select
+            id="userId"
+            name="userId"
+            value={formData.userId}
+            onChange={handleInputChange}
+            className={`form-input ${errors.userId ? 'border-red-400 focus:ring-red-400' : ''}`}
+          >
+            <option value="">-- Select a user --</option>
+            {users.map((user) => (
+              <option key={user._id} value={user._id}>
+                {user.firstName} {user.lastName} ({user.email})
+              </option>
+            ))}
+          </select>
+          {errors.userId && <p className="text-xs text-red-500 mt-1">{errors.userId}</p>}
+        </div>
+
+        {/* Specialization */}
+        <div>
+          <label className="form-label" htmlFor="specialization">
+            Specialization *
+          </label>
+          <select
+            id="specialization"
+            name="specialization"
+            value={formData.specialization}
+            onChange={handleInputChange}
+            className={`form-input ${errors.specialization ? 'border-red-400 focus:ring-red-400' : ''}`}
+          >
+            <option value="">-- Select specialization --</option>
+            {SPECIALIZATIONS.map((spec) => (
+              <option key={spec} value={spec}>
+                {spec}
+              </option>
+            ))}
+          </select>
+          {errors.specialization && <p className="text-xs text-red-500 mt-1">{errors.specialization}</p>}
+        </div>
+
+        {/* Qualifications */}
+        <div className="space-y-2">
+          <div className="flex justify-between items-center">
+            <label className="form-label">Qualifications *</label>
+            {errors.qualifications && <p className="text-xs text-red-500">{errors.qualifications}</p>}
+          </div>
+          {formData.qualifications.map((qual, index) => (
+            <div key={index} className="p-4 border border-gray-200 rounded-lg space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <label className="form-label text-xs">Degree *</label>
+                  <input
+                    type="text"
+                    placeholder="e.g., MBBS, MD, MS"
+                    value={qual.degree}
+                    onChange={(e) => handleQualificationChange(index, 'degree', e.target.value)}
+                    className="form-input"
+                  />
+                </div>
+                <div>
+                  <label className="form-label text-xs">Institution</label>
+                  <input
+                    type="text"
+                    placeholder="e.g., Medical College"
+                    value={qual.institution}
+                    onChange={(e) => handleQualificationChange(index, 'institution', e.target.value)}
+                    className="form-input"
+                  />
+                </div>
+                <div>
+                  <label className="form-label text-xs">Year Obtained *</label>
+                  <input
+                    type="number"
+                    min="1900"
+                    max={new Date().getFullYear()}
+                    value={qual.yearObtained}
+                    onChange={(e) => handleQualificationChange(index, 'yearObtained', parseInt(e.target.value))}
+                    className="form-input"
+                  />
+                </div>
+                <div>
+                  <label className="form-label text-xs">Certificate Number</label>
+                  <input
+                    type="text"
+                    placeholder="Certificate number (optional)"
+                    value={qual.certificateNumber}
+                    onChange={(e) => handleQualificationChange(index, 'certificateNumber', e.target.value)}
+                    className="form-input"
+                  />
+                </div>
+              </div>
+              {formData.qualifications.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => removeQualification(index)}
+                  className="text-red-600 hover:text-red-700 text-sm flex items-center gap-1"
+                >
+                  <Trash2 size={14} />
+                  Remove Qualification
+                </button>
+              )}
+            </div>
+          ))}
+          <button
+            type="button"
+            onClick={addQualification}
+            className="text-primary-600 hover:text-primary-700 text-sm flex items-center gap-1"
+          >
+            <Plus size={14} />
+            Add Another Qualification
+          </button>
+        </div>
+
+        {/* Years of Experience & License */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="form-label" htmlFor="firstName">First Name *</label>
-            <input id="firstName" name="firstName" type="text" value={formData.firstName} onChange={handleInputChange} className={`form-input ${errors.firstName ? 'border-red-400 focus:ring-red-400' : ''}`} />
-            {errors.firstName && <p className="text-xs text-red-500 mt-1">{errors.firstName}</p>}
+            <label className="form-label" htmlFor="yearsOfExperience">
+              Years of Experience *
+            </label>
+            <input
+              id="yearsOfExperience"
+              name="yearsOfExperience"
+              type="number"
+              min="0"
+              max="80"
+              value={formData.yearsOfExperience}
+              onChange={handleInputChange}
+              className={`form-input ${errors.yearsOfExperience ? 'border-red-400 focus:ring-red-400' : ''}`}
+            />
+            {errors.yearsOfExperience && <p className="text-xs text-red-500 mt-1">{errors.yearsOfExperience}</p>}
           </div>
           <div>
-            <label className="form-label" htmlFor="lastName">Last Name *</label>
-            <input id="lastName" name="lastName" type="text" value={formData.lastName} onChange={handleInputChange} className={`form-input ${errors.lastName ? 'border-red-400 focus:ring-red-400' : ''}`} />
-            {errors.lastName && <p className="text-xs text-red-500 mt-1">{errors.lastName}</p>}
+            <label className="form-label" htmlFor="licenseNumber">
+              License Number *
+            </label>
+            <input
+              id="licenseNumber"
+              name="licenseNumber"
+              type="text"
+              value={formData.licenseNumber}
+              onChange={handleInputChange}
+              className={`form-input ${errors.licenseNumber ? 'border-red-400 focus:ring-red-400' : ''}`}
+            />
+            {errors.licenseNumber && <p className="text-xs text-red-500 mt-1">{errors.licenseNumber}</p>}
           </div>
+        </div>
+
+        {/* Phone & Consultation Fee */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="form-label" htmlFor="specialization">Specialization *</label>
-            <input id="specialization" name="specialization" type="text" value={formData.specialization} onChange={handleInputChange} className={`form-input ${errors.specialization ? 'border-red-400 focus:ring-red-400' : ''}`} />
-            {errors.specialization && <p className="text-xs text-red-500 mt-1">{errors.specialization}</p>}
-          </div>
-          <div>
-            <label className="form-label" htmlFor="qualification">Qualification</label>
-            <input id="qualification" name="qualification" type="text" value={formData.qualification} onChange={handleInputChange} className="form-input" />
-          </div>
-          <div>
-            <label className="form-label" htmlFor="experience">Experience (years)</label>
-            <input id="experience" name="experience" type="number" min="0" value={formData.experience} onChange={handleInputChange} className="form-input" />
-          </div>
-          <div>
-            <label className="form-label" htmlFor="consultationFee">Consultation Fee</label>
-            <input id="consultationFee" name="consultationFee" type="number" min="0" value={formData.consultationFee} onChange={handleInputChange} className="form-input" />
-          </div>
-          <div>
-            <label className="form-label" htmlFor="phone">Phone Number *</label>
-            <input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} className={`form-input ${errors.phone ? 'border-red-400 focus:ring-red-400' : ''}`} />
+            <label className="form-label" htmlFor="phone">
+              Phone Number *
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={handleInputChange}
+              className={`form-input ${errors.phone ? 'border-red-400 focus:ring-red-400' : ''}`}
+            />
             {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
           </div>
           <div>
-            <label className="form-label" htmlFor="email">Email Address</label>
-            <input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} className={`form-input ${errors.email ? 'border-red-400 focus:ring-red-400' : ''}`} />
-            {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
+            <label className="form-label" htmlFor="consultationFee">
+              Consultation Fee *
+            </label>
+            <input
+              id="consultationFee"
+              name="consultationFee"
+              type="number"
+              min="0"
+              value={formData.consultationFee}
+              onChange={handleInputChange}
+              className={`form-input ${errors.consultationFee ? 'border-red-400 focus:ring-red-400' : ''}`}
+            />
+            {errors.consultationFee && <p className="text-xs text-red-500 mt-1">{errors.consultationFee}</p>}
           </div>
-          <div className="md:col-span-2">
-            <label className="form-label" htmlFor="availability">Availability</label>
-            <input id="availability" name="availability" type="text" value={formData.availability} onChange={handleInputChange} className="form-input" />
+        </div>
+
+        {/* Bio, Department & Office Address */}
+        <div>
+          <label className="form-label" htmlFor="bio">
+            Bio
+          </label>
+          <textarea
+            id="bio"
+            name="bio"
+            maxLength="1000"
+            rows="3"
+            value={formData.bio}
+            onChange={handleInputChange}
+            placeholder="Brief bio about the doctor"
+            className="form-input resize-none"
+          />
+          <p className="text-xs text-gray-500 mt-1">{formData.bio.length} / 1000 characters</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="form-label" htmlFor="department">
+              Department
+            </label>
+            <input
+              id="department"
+              name="department"
+              type="text"
+              value={formData.department}
+              onChange={handleInputChange}
+              className="form-input"
+              placeholder="e.g., Cardiology Department"
+            />
+          </div>
+          <div>
+            <label className="form-label" htmlFor="officeAddress">
+              Office Address
+            </label>
+            <input
+              id="officeAddress"
+              name="officeAddress"
+              type="text"
+              value={formData.officeAddress}
+              onChange={handleInputChange}
+              className="form-input"
+              placeholder="Clinic or office address"
+            />
           </div>
         </div>
       </form>
     </Modal>
   );
 }
+
