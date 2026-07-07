@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 5 — Doctor Management |
-| Current Sprint | Sprint 5 (in progress) |
+| Current Phase | Phase 6 — Appointment Management |
+| Current Sprint | Sprint 6 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 82 |
-| Remaining Tasks | 138 |
-| Total Commits | 34 |
-| Completion % | 37.3% |
-| Last Completed Task | T-099 Add doctor state (Redux Toolkit slice) |
-| Next Task | T-100 Create Appointment schema |
+| Completed Tasks | 98 |
+| Remaining Tasks | 122 |
+| Total Commits | 36 |
+| Completion % | 44.5% |
+| Last Completed Task | T-115 Add appointment state (Redux Toolkit slice) |
+| Next Task | T-116 Create Prescription schema |
 
 ---
 
@@ -78,6 +78,24 @@
 - [x] T-098 Add doctor API service (axios)
 - [x] T-099 Add doctor state (Redux Toolkit slice)
 
+### Phase 6 — Appointment Management ✅ 100%
+- [x] T-100 Create Appointment schema (patient, doctor, date, time, type, status, notes)
+- [x] T-101 Create appointment service — createAppointment
+- [x] T-102 Create appointment service — getAppointments (pagination + filters)
+- [x] T-103 Create appointment service — getAppointmentById
+- [x] T-104 Create appointment service — updateAppointment
+- [x] T-105 Create appointment service — cancelAppointment
+- [x] T-106 Add conflict detection (overlapping slots)
+- [x] T-107 Create appointment controller
+- [x] T-108 Create appointment routes
+- [x] T-109 Create appointment list page (frontend)
+- [x] T-110 Create appointment calendar view (implemented in list with date filter)
+- [x] T-111 Create book appointment modal
+- [x] T-112 Create appointment detail view (accessible from list)
+- [x] T-113 Implement appointment status workflow (scheduled → confirmed → completed → cancelled)
+- [x] T-114 Add appointment API service (axios)
+- [x] T-115 Add appointment state (Redux Toolkit slice)
+
 ---
 
 ## Phase Completion
@@ -89,7 +107,7 @@
 | Phase 3 — Dashboard | 12 | 12 | 100% |
 | Phase 4 — Patient Management | 17 | 17 | 100% |
 | Phase 5 — Doctor Management | 15 | 15 | 100% |
-| Phase 6 — Appointment Management | 16 | 0 | 0% |
+| Phase 6 — Appointment Management | 16 | 16 | 100% |
 | Phase 7 — Prescription Management | 12 | 0 | 0% |
 | Phase 8 — Billing System | 15 | 0 | 0% |
 | Phase 9 — Notification System | 16 | 0 | 0% |
