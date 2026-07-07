@@ -55,12 +55,14 @@ const authRoutes = require('./routes/auth.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
 const patientRoutes = require('./routes/patient.routes');
 const doctorRoutes = require('./routes/doctor.routes');
+const appointmentRoutes = require('./routes/appointment.routes');
 
 app.use('/api', healthRoute);
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/patients', patientRoutes);
 app.use('/api/doctors', doctorRoutes);
+app.use('/api/appointments', appointmentRoutes);
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────────
 app.use(notFound);
