@@ -69,6 +69,17 @@ export const prescriptionService = {
     const response = await api.delete(`/prescriptions/${id}`);
     return response.data;
   },
+
+  /**
+   * Export a prescription as PDF.
+   * @param {string} id - Prescription MongoDB ID
+   */
+  exportPrescriptionPDF: async (id) => {
+    const response = await api.get(`/prescriptions/${id}/export-pdf`, {
+      responseType: 'blob',
+    });
+    return response.data;
+  },
 };
 
 export default prescriptionService;
