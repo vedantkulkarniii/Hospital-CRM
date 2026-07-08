@@ -3,6 +3,8 @@ import authReducer from './slices/authSlice.js';
 import dashboardReducer from './slices/dashboardSlice.js';
 import patientReducer from './slices/patientSlice.js';
 import doctorReducer from './slices/doctorSlice.js';
+import appointmentReducer from './slices/appointmentSlice.js';
+import prescriptionReducer from './slices/prescriptionSlice.js';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +12,8 @@ export const store = configureStore({
     dashboard: dashboardReducer,
     patient: patientReducer,
     doctor: doctorReducer,
+    appointment: appointmentReducer,
+    prescription: prescriptionReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
