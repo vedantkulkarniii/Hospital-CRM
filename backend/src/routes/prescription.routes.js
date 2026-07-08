@@ -85,4 +85,11 @@ router.delete(
   prescriptionController.deletePrescription,
 );
 
+// PDF Export route
+router.get(
+  '/:id/export-pdf',
+  authorize('admin', 'doctor', 'receptionist', 'patient'),
+  prescriptionController.exportPrescriptionPDF,
+);
+
 module.exports = router;

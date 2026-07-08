@@ -136,6 +136,27 @@ const getPrescriptionsByDoctor = async (req, res, next) => {
   }
 };
 
+/**
+ * Export prescription as PDF.
+ * @route GET /api/prescriptions/:id/export-pdf
+ */
+const exportPrescriptionPDF = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const pdfBuffer = await prescriptionService.exportPrescriptionPDF(id);
+
+    // Set response headers
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="prescription-${id}.pdf"`);
+    res.setHeader('Content-Length', pdfBuffer.length);
+
+    return res.end(pdfBuffer);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   createPrescription,
   getPrescriptions,
@@ -144,4 +165,5 @@ module.exports = {
   deletePrescription,
   getPrescriptionsByPatient,
   getPrescriptionsByDoctor,
+  exportPrescriptionPDF,
 };

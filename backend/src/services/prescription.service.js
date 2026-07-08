@@ -222,6 +222,22 @@ const getPrescriptionsByDoctor = async (doctorId, { page = 1, limit = 10 } = {})
   return { prescriptions, total, page: parsedPage, limit: parsedLimit };
 };
 
+/**
+ * Export prescription as PDF.
+ * @param {string} id - Prescription MongoDB ID
+ * @returns {Promise<Buffer>} - PDF buffer
+ */
+const exportPrescriptionPDF = async (id) => {
+  const prescription = await getPrescriptionById(id);
+
+  // Generate PDF
+  const { generatePrescriptionPDF } = require('../utils/pdfGenerator');
+  const pdfBuffer = await generatePrescriptionPDF(prescription);
+
+  logger.info(`Prescription PDF exported: ${prescription.prescriptionId}`);
+  return pdfBuffer;
+};
+
 module.exports = {
   createPrescription,
   getPrescriptions,
@@ -230,4 +246,5 @@ module.exports = {
   deletePrescription,
   getPrescriptionsByPatient,
   getPrescriptionsByDoctor,
+  exportPrescriptionPDF,
 };
