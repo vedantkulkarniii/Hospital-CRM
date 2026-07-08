@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 6 — Appointment Management |
-| Current Sprint | Sprint 6 (in progress) |
+| Current Phase | Phase 7 — Prescription Management |
+| Current Sprint | Sprint 7 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 98 |
-| Remaining Tasks | 122 |
-| Total Commits | 36 |
-| Completion % | 44.5% |
-| Last Completed Task | T-115 Add appointment state (Redux Toolkit slice) |
-| Next Task | T-116 Create Prescription schema |
+| Completed Tasks | 100 |
+| Remaining Tasks | 120 |
+| Total Commits | 38 |
+| Completion % | 45.5% |
+| Last Completed Task | T-126 PDF export for prescriptions |
+| Next Task | Phase 8 — Billing System (T-128) |
 
 ---
 
@@ -96,9 +96,21 @@
 - [x] T-114 Add appointment API service (axios)
 - [x] T-115 Add appointment state (Redux Toolkit slice)
 
----
+### Phase 7 — Prescription Management ✅ 100%
+- [x] T-116 Create Prescription schema (appointment ref, patient ref, doctor ref, medications[], diagnosis, notes, follow-up)
+- [x] T-117 Create medication sub-schema (name, dosage, frequency, duration, instructions)
+- [x] T-118 Create prescription service — createPrescription
+- [x] T-119 Create prescription service — getPrescriptions (pagination + filters by patient/doctor)
+- [x] T-120 Create prescription service — getPrescriptionById
+- [x] T-121 Create prescription service — updatePrescription
+- [x] T-122 Create prescription controller
+- [x] T-123 Create prescription routes
+- [x] T-124 Create prescription list page (frontend)
+- [x] T-125 Create prescription form modal
+- [x] T-126 Create prescription detail view with PDF export capability
+- [x] T-127 Add prescription API service (axios)
 
-## Phase Completion
+---
 
 | Phase | Tasks | Done | % |
 |---|---|---|---|
@@ -108,7 +120,7 @@
 | Phase 4 — Patient Management | 17 | 17 | 100% |
 | Phase 5 — Doctor Management | 15 | 15 | 100% |
 | Phase 6 — Appointment Management | 16 | 16 | 100% |
-| Phase 7 — Prescription Management | 12 | 0 | 0% |
+| Phase 7 — Prescription Management | 12 | 12 | 100% |
 | Phase 8 — Billing System | 15 | 0 | 0% |
 | Phase 9 — Notification System | 16 | 0 | 0% |
 | Phase 10 — Reports & Analytics | 13 | 0 | 0% |
@@ -119,4 +131,4 @@
 
 ---
 
-*Last updated: Sprint 4 — Complete*
+*Last updated: Sprint 7 — Phase 7 Complete*
