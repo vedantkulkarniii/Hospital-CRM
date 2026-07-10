@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 7 — Prescription Management |
-| Current Sprint | Sprint 7 (in progress) |
+| Current Phase | Phase 8 — Billing System |
+| Current Sprint | Sprint 8 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 100 |
-| Remaining Tasks | 120 |
-| Total Commits | 38 |
-| Completion % | 45.5% |
-| Last Completed Task | T-126 PDF export for prescriptions |
-| Next Task | Phase 8 — Billing System (T-128) |
+| Completed Tasks | 112 |
+| Remaining Tasks | 108 |
+| Total Commits | 42 |
+| Completion % | 50.9% |
+| Last Completed Task | T-139 Add bill state (Redux Toolkit slice) |
+| Next Task | Phase 9 — Notification System (T-140) |
 
 ---
 
@@ -110,6 +110,20 @@
 - [x] T-126 Create prescription detail view with PDF export capability
 - [x] T-127 Add prescription API service (axios)
 
+### Phase 8 — Billing System ✅ 100%
+- [x] T-128 Create Bill schema (patient, appointment, consultationFee, medicationCost, labTestCost, otherCharges, discount, taxPercentage, totalAmount, status, dueDate, paymentDate)
+- [x] T-129 Create bill service — createBill
+- [x] T-130 Create bill service — getBills (pagination + filters by patient/status)
+- [x] T-131 Create bill service — getBillById
+- [x] T-132 Create bill service — updateBillPaymentStatus
+- [x] T-133 Create bill controller
+- [x] T-134 Create bill routes (CRUD + payment update)
+- [x] T-135 Create billing list page (frontend)
+- [x] T-136 Create bill form modal
+- [x] T-137 Create bill detail view with payment recording
+- [x] T-138 Add bill API service (axios)
+- [x] T-139 Add bill state (Redux Toolkit slice)
+
 ---
 
 | Phase | Tasks | Done | % |
@@ -121,7 +135,7 @@
 | Phase 5 — Doctor Management | 15 | 15 | 100% |
 | Phase 6 — Appointment Management | 16 | 16 | 100% |
 | Phase 7 — Prescription Management | 12 | 12 | 100% |
-| Phase 8 — Billing System | 15 | 0 | 0% |
+| Phase 8 — Billing System | 12 | 12 | 100% |
 | Phase 9 — Notification System | 16 | 0 | 0% |
 | Phase 10 — Reports & Analytics | 13 | 0 | 0% |
 | Phase 11 — Inventory Management | 12 | 0 | 0% |
@@ -131,4 +145,4 @@
 
 ---
 
-*Last updated: Sprint 7 — Phase 7 Complete*
+*Last updated: Sprint 8 — Phase 8 Complete*
