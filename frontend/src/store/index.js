@@ -6,6 +6,7 @@ import doctorReducer from './slices/doctorSlice.js';
 import appointmentReducer from './slices/appointmentSlice.js';
 import prescriptionReducer from './slices/prescriptionSlice.js';
 import billReducer from './slices/billSlice.js';
+import notificationReducer from './slices/notificationSlice.js';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     appointment: appointmentReducer,
     prescription: prescriptionReducer,
     bill: billReducer,
+    notification: notificationReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

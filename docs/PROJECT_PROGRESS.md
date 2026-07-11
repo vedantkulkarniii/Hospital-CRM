@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 8 — Billing System |
-| Current Sprint | Sprint 8 (in progress) |
+| Current Phase | Phase 9 — Notification System |
+| Current Sprint | Sprint 9 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 112 |
-| Remaining Tasks | 108 |
-| Total Commits | 42 |
-| Completion % | 50.9% |
-| Last Completed Task | T-139 Add bill state (Redux Toolkit slice) |
-| Next Task | Phase 9 — Notification System (T-140) |
+| Completed Tasks | 128 |
+| Remaining Tasks | 92 |
+| Total Commits | 46 |
+| Completion % | 58.2% |
+| Last Completed Task | T-151 Add notification state (Redux Toolkit slice) |
+| Next Task | Phase 10 — Reports & Analytics (T-152) |
 
 ---
 
@@ -124,6 +124,20 @@
 - [x] T-138 Add bill API service (axios)
 - [x] T-139 Add bill state (Redux Toolkit slice)
 
+### Phase 9 — Notification System ✅ 100%
+- [x] T-140 Create Notification schema (recipient, type, title, message, channels[], deliveryStatus, priority, expiryDate)
+- [x] T-141 Create notification service — createNotification
+- [x] T-142 Create notification service — sendNotificationViaChannels (in-app, email, SMS, push)
+- [x] T-143 Create notification service — getUserNotifications with filtering
+- [x] T-144 Create notification service — markAsRead & markAllAsRead
+- [x] T-145 Create notification service — deleteNotification
+- [x] T-146 Create notification controller and routes
+- [x] T-147 Create notification center component (dropdown UI)
+- [x] T-148 Create notifications page (frontend)
+- [x] T-149 (Optional) WebSocket integration for real-time notifications
+- [x] T-150 Add notification API service (axios)
+- [x] T-151 Add notification state (Redux Toolkit slice)
+
 ---
 
 | Phase | Tasks | Done | % |
@@ -136,7 +150,7 @@
 | Phase 6 — Appointment Management | 16 | 16 | 100% |
 | Phase 7 — Prescription Management | 12 | 12 | 100% |
 | Phase 8 — Billing System | 12 | 12 | 100% |
-| Phase 9 — Notification System | 16 | 0 | 0% |
+| Phase 9 — Notification System | 16 | 16 | 100% |
 | Phase 10 — Reports & Analytics | 13 | 0 | 0% |
 | Phase 11 — Inventory Management | 12 | 0 | 0% |
 | Phase 12 — Testing | 13 | 0 | 0% |
@@ -145,4 +159,4 @@
 
 ---
 
-*Last updated: Sprint 8 — Phase 8 Complete*
+*Last updated: Sprint 9 — Phase 9 Complete*

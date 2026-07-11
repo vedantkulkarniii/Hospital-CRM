@@ -58,6 +58,7 @@ const doctorRoutes = require('./routes/doctor.routes');
 const appointmentRoutes = require('./routes/appointment.routes');
 const prescriptionRoutes = require('./routes/prescription.routes');
 const billRoutes = require('./routes/bill.routes');
+const notificationRoutes = require('./routes/notification.routes');
 
 app.use('/api', healthRoute);
 app.use('/api/auth', authRoutes);
@@ -67,6 +68,7 @@ app.use('/api/doctors', doctorRoutes);
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/prescriptions', prescriptionRoutes);
 app.use('/api/bills', billRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // ─── 404 Handler ──────────────────────────────────────────────────────────────
 app.use(notFound);
