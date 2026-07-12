@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 9 — Notification System |
-| Current Sprint | Sprint 9 (in progress) |
+| Current Phase | Phase 10 — Reports & Analytics |
+| Current Sprint | Sprint 10 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 128 |
-| Remaining Tasks | 92 |
-| Total Commits | 46 |
-| Completion % | 58.2% |
-| Last Completed Task | T-151 Add notification state (Redux Toolkit slice) |
-| Next Task | Phase 10 — Reports & Analytics (T-152) |
+| Completed Tasks | 141 |
+| Remaining Tasks | 79 |
+| Total Commits | 50 |
+| Completion % | 64.1% |
+| Last Completed Task | T-164 Add analytics state (Redux Toolkit slice) |
+| Next Task | Phase 11 — Inventory Management (T-165) |
 
 ---
 
@@ -138,6 +138,21 @@
 - [x] T-150 Add notification API service (axios)
 - [x] T-151 Add notification state (Redux Toolkit slice)
 
+### Phase 10 — Reports & Analytics ✅ 100%
+- [x] T-152 Create Report schema (type, title, data, summary, filters, format, scheduling)
+- [x] T-153 Create analytics service — getPatientDemographics
+- [x] T-154 Create analytics service — getDoctorPerformance
+- [x] T-155 Create analytics service — getAppointmentAnalytics
+- [x] T-156 Create analytics service — getBillingRevenue
+- [x] T-157 Create analytics service — getPrescriptionTrends
+- [x] T-158 Create analytics service — getFinancialSummary
+- [x] T-159 Create analytics service — getOccupancyRate
+- [x] T-160 Create analytics controller and routes
+- [x] T-161 Create Reports & Analytics page (frontend) with charts
+- [x] T-162 Add analytics API service (axios)
+- [x] T-163 Add analytics Redux state management
+- [x] T-164 Implement date range filtering and export functionality
+
 ---
 
 | Phase | Tasks | Done | % |
@@ -151,7 +166,7 @@
 | Phase 7 — Prescription Management | 12 | 12 | 100% |
 | Phase 8 — Billing System | 12 | 12 | 100% |
 | Phase 9 — Notification System | 16 | 16 | 100% |
-| Phase 10 — Reports & Analytics | 13 | 0 | 0% |
+| Phase 10 — Reports & Analytics | 13 | 13 | 100% |
 | Phase 11 — Inventory Management | 12 | 0 | 0% |
 | Phase 12 — Testing | 13 | 0 | 0% |
 | Phase 13 — Optimization | 11 | 0 | 0% |
@@ -159,4 +174,4 @@
 
 ---
 
-*Last updated: Sprint 9 — Phase 9 Complete*
+*Last updated: Sprint 10 — Phase 10 Complete*
