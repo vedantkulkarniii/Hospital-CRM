@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 10 — Reports & Analytics |
-| Current Sprint | Sprint 10 (in progress) |
+| Current Phase | Phase 11 — Inventory Management |
+| Current Sprint | Sprint 11 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 141 |
-| Remaining Tasks | 79 |
-| Total Commits | 50 |
-| Completion % | 64.1% |
-| Last Completed Task | T-164 Add analytics state (Redux Toolkit slice) |
-| Next Task | Phase 11 — Inventory Management (T-165) |
+| Completed Tasks | 154 |
+| Remaining Tasks | 66 |
+| Total Commits | 51 |
+| Completion % | 70% |
+| Last Completed Task | T-176 Add inventory Redux state management |
+| Next Task | Phase 12 — Testing (T-177) |
 
 ---
 
@@ -153,6 +153,20 @@
 - [x] T-163 Add analytics Redux state management
 - [x] T-164 Implement date range filtering and export functionality
 
+### Phase 11 — Inventory Management ✅ 100%
+- [x] T-165 Create Inventory schema (itemName, itemCode, category, quantity, unit, costPrice, sellingPrice, supplier, expiryDate, status, alerts)
+- [x] T-166 Create inventory service — createInventoryItem
+- [x] T-167 Create inventory service — getInventoryItems (pagination + filters)
+- [x] T-168 Create inventory service — getInventoryItemById
+- [x] T-169 Create inventory service — updateInventoryItem (stock updates, status auto-update)
+- [x] T-170 Create inventory service — deleteInventoryItem
+- [x] T-171 Create inventory service — getLowStockItems, getOutOfStockItems, getExpiringItems, getExpiredItems
+- [x] T-172 Create inventory controller and routes
+- [x] T-173 Create inventory list page (frontend) with search, category/status filters, table
+- [x] T-174 Create inventory form modal (add/edit items)
+- [x] T-175 Create inventory detail view with quantity update capability
+- [x] T-176 Add inventory API service (axios) and Redux state management
+
 ---
 
 | Phase | Tasks | Done | % |
@@ -167,11 +181,11 @@
 | Phase 8 — Billing System | 12 | 12 | 100% |
 | Phase 9 — Notification System | 16 | 16 | 100% |
 | Phase 10 — Reports & Analytics | 13 | 13 | 100% |
-| Phase 11 — Inventory Management | 12 | 0 | 0% |
+| Phase 11 — Inventory Management | 12 | 12 | 100% |
 | Phase 12 — Testing | 13 | 0 | 0% |
 | Phase 13 — Optimization | 11 | 0 | 0% |
 | Phase 14 — Deployment | 13 | 0 | 0% |
 
 ---
 
-*Last updated: Sprint 10 — Phase 10 Complete*
+*Last updated: Sprint 11 — Phase 11 Complete*

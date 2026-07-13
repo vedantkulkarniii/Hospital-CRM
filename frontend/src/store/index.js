@@ -8,6 +8,7 @@ import prescriptionReducer from './slices/prescriptionSlice.js';
 import billReducer from './slices/billSlice.js';
 import notificationReducer from './slices/notificationSlice.js';
 import analyticsReducer from './slices/analyticsSlice.js';
+import inventoryReducer from './slices/inventorySlice.js';
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     bill: billReducer,
     notification: notificationReducer,
     analytics: analyticsReducer,
+    inventory: inventoryReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
