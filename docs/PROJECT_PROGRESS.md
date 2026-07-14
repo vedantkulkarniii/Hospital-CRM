@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 11 — Inventory Management |
-| Current Sprint | Sprint 11 (in progress) |
+| Current Phase | Phase 12 — Testing |
+| Current Sprint | Sprint 12 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 154 |
-| Remaining Tasks | 66 |
-| Total Commits | 52 |
-| Completion % | 70% |
-| Last Completed Task | T-176 Add inventory Redux state management |
-| Next Task | Phase 12 — Testing (T-177) |
+| Completed Tasks | 167 |
+| Remaining Tasks | 53 |
+| Total Commits | 53 |
+| Completion % | 75.9% |
+| Last Completed Task | T-191 Prescription PDF export tests completed |
+| Next Task | Phase 12 Frontend Testing & API Integration (T-192) |
 
 ---
 
@@ -167,6 +167,26 @@
 - [x] T-175 Create inventory detail view with quantity update capability
 - [x] T-176 Add inventory API service (axios) and Redux state management
 
+### Phase 12 — Testing ✅ ~66%
+- [x] T-177 Setup Jest configuration and test environment for backend
+- [x] T-178 Write inventory service unit tests (pagination, filtering, alerts)
+- [x] T-179 Write inventory status management tests
+- [x] T-180 Write appointment service unit tests (scheduling, pagination, workflow)
+- [x] T-181 Write appointment slot conflict detection tests
+- [x] T-182 Write appointment status workflow tests
+- [x] T-183 Write appointment cancellation tests
+- [x] T-184 Write patient service unit tests (list, pagination, search)
+- [x] T-185 Write patient medical records tests
+- [x] T-186 Write patient search & filter tests
+- [x] T-187 Write patient data management tests
+- [x] T-188 Write prescription service unit tests
+- [x] T-189 Write prescription medication management tests
+- [x] T-190 Write prescription filtering tests
+- [x] T-191 Write prescription PDF export tests
+- [ ] T-192 Write API route integration tests
+- [ ] T-193 Setup frontend test environment (Vitest)
+- [ ] T-194 Write React component unit tests
+
 ---
 
 | Phase | Tasks | Done | % |
@@ -182,10 +202,10 @@
 | Phase 9 — Notification System | 16 | 16 | 100% |
 | Phase 10 — Reports & Analytics | 13 | 13 | 100% |
 | Phase 11 — Inventory Management | 12 | 12 | 100% |
-| Phase 12 — Testing | 13 | 0 | 0% |
+| Phase 12 — Testing | 13 | 9 | 69% |
 | Phase 13 — Optimization | 11 | 0 | 0% |
 | Phase 14 — Deployment | 13 | 0 | 0% |
 
 ---
 
-*Last updated: Sprint 11 — Phase 11 Complete*
+*Last updated: Sprint 12 — Phase 12 In Progress (Backend Unit Tests Complete)*
