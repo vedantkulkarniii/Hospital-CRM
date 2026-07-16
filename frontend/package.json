@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.12.0",
@@ -23,15 +26,21 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^15.0.0",
+    "@testing-library/user-event": "^14.5.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/ui": "^1.1.3",
     "autoprefixer": "^10.5.0",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "jsdom": "^23.0.1",
     "postcss": "^8.5.15",
-    "vite": "^8.0.12"
+    "vite": "^8.0.12",
+    "vitest": "^1.1.3"
   }
 }

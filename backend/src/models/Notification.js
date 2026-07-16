@@ -62,7 +62,7 @@ const notificationSchema = new mongoose.Schema(
 
     // Additional data (flexible)
     metadata: {
-      type: mongoose.Schema.Mixed,
+      type: Object,
       default: {},
     },
 
