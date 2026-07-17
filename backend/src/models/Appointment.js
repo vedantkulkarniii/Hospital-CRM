@@ -159,7 +159,6 @@ appointmentSchema.index({ patient: 1 });
 appointmentSchema.index({ doctor: 1 });
 appointmentSchema.index({ appointmentDate: 1 });
 appointmentSchema.index({ status: 1 });
-appointmentSchema.index({ appointmentId: 1 }, { unique: true, sparse: true });
 appointmentSchema.index({ createdAt: -1 });
 appointmentSchema.index({ appointmentDate: 1, doctor: 1 }, { name: 'doctor_date_index' });
 appointmentSchema.index({ appointmentDate: 1, patient: 1 }, { name: 'patient_date_index' });

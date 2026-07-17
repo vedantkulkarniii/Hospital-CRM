@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../../app');
 const User = require('../../models/User');
 const Patient = require('../../models/Patient');
-const { connectDB } = require('../../config/database');
+const connectDB = require('../../config/database');
 
 describe('Patient Routes Integration Tests', () => {
   let connection;

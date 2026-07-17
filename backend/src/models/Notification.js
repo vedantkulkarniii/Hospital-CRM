@@ -165,7 +165,6 @@ notificationSchema.index({ recipient: 1 });
 notificationSchema.index({ type: 1 });
 notificationSchema.index({ isRead: 1 });
 notificationSchema.index({ createdAt: -1 });
-notificationSchema.index({ expiresAt: 1 });
 notificationSchema.index({ recipient: 1, isRead: 1, createdAt: -1 });
 notificationSchema.index({ isDeleted: 1 });
 

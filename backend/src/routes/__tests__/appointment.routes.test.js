@@ -4,7 +4,7 @@ const User = require('../../models/User');
 const Patient = require('../../models/Patient');
 const Doctor = require('../../models/Doctor');
 const Appointment = require('../../models/Appointment');
-const { connectDB } = require('../../config/database');
+const connectDB = require('../../config/database');
 
 describe('Appointment Routes Integration Tests', () => {
   let connection;

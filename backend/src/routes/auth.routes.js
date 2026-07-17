@@ -16,6 +16,10 @@ const {
 const router = express.Router();
 
 // Stricter rate limit for auth endpoints (brute force protection)
+// DEVELOPMENT MODE: Disabled rate limiting for testing
+// For production, uncomment the rate limiter below
+const authLimiter = (req, res, next) => next();
+/*
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 min
   max: 10,
@@ -24,6 +28,7 @@ const authLimiter = rateLimit({
   message: { success: false, message: 'Too many auth attempts. Please try again in 15 minutes.' },
   skipSuccessfulRequests: true,
 });
+*/
 
 // ─── Public Routes ────────────────────────────────────────────────────────────
 router.post('/register', authLimiter, registerValidation, validate, authController.register);

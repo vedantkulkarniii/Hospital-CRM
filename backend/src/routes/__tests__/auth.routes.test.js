@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('../../app');
 const User = require('../../models/User');
-const { connectDB } = require('../../config/database');
+const connectDB = require('../../config/database');
 
 describe('Auth Routes Integration Tests', () => {
   let connection;

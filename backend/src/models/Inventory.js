@@ -181,7 +181,6 @@ inventorySchema.virtual('isExpired').get(function () {
 });
 
 // ─── Indexes ──────────────────────────────────────────────────────────────────
-inventorySchema.index({ itemCode: 1 }, { unique: true, sparse: true });
 inventorySchema.index({ category: 1 });
 inventorySchema.index({ status: 1 });
 inventorySchema.index({ quantity: 1 });

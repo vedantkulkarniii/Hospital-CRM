@@ -148,7 +148,6 @@ const patientSchema = new mongoose.Schema(
 patientSchema.index({ firstName: 1, lastName: 1 });
 patientSchema.index({ email: 1 });
 patientSchema.index({ phone: 1 });
-patientSchema.index({ patientId: 1 }, { unique: true, sparse: true });
 patientSchema.index({ isDeleted: 1 });
 patientSchema.index({ createdAt: -1 });
 patientSchema.index(

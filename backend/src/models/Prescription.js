@@ -148,7 +148,6 @@ const prescriptionSchema = new mongoose.Schema(
 prescriptionSchema.index({ appointment: 1 });
 prescriptionSchema.index({ patient: 1 });
 prescriptionSchema.index({ doctor: 1 });
-prescriptionSchema.index({ prescriptionId: 1 }, { unique: true, sparse: true });
 prescriptionSchema.index({ createdAt: -1 });
 prescriptionSchema.index({ isDeleted: 1 });
 

@@ -208,10 +208,7 @@ const doctorSchema = new mongoose.Schema(
 );
 
 // ─── Indexes ──────────────────────────────────────────────────────────────────
-doctorSchema.index({ userId: 1 });
-doctorSchema.index({ doctorId: 1 }, { unique: true, sparse: true });
 doctorSchema.index({ specialization: 1 });
-doctorSchema.index({ licenseNumber: 1 }, { unique: true });
 doctorSchema.index({ isActive: 1 });
 doctorSchema.index({ isVerified: 1 });
 doctorSchema.index({ isDeleted: 1 });

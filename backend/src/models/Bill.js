@@ -195,7 +195,6 @@ billSchema.virtual('daysOverdue').get(function () {
 // ─── Indexes ──────────────────────────────────────────────────────────────────
 billSchema.index({ patient: 1 });
 billSchema.index({ appointment: 1 });
-billSchema.index({ billId: 1 }, { unique: true, sparse: true });
 billSchema.index({ status: 1 });
 billSchema.index({ dueDate: 1 });
 billSchema.index({ createdAt: -1 });
