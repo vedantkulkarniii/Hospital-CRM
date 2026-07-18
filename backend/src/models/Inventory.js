@@ -176,7 +176,7 @@ inventorySchema.virtual('isOutOfStock').get(function () {
 });
 
 inventorySchema.virtual('isExpired').get(function () {
-  if (!this.expiryDate) return false;
+  if (!this.expiryDate) {return false;}
   return new Date() > this.expiryDate;
 });
 

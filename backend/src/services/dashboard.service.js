@@ -13,12 +13,12 @@ const logger = require('../utils/logger');
  * Aggregates and caches: total patients, doctors, appointments, revenue
  * @access Private (Admin)
  */
-exports.getAdminStats = async (userId) => {
+exports.getAdminStats = async () => {
   const cacheKey = 'dashboard:admin:stats';
 
   try {
     // Check cache first
-    let cachedStats = await getCacheValue(cacheKey);
+    const cachedStats = await getCacheValue(cacheKey);
     if (cachedStats) {
       logger.debug('Returning cached admin stats');
       return cachedStats;
@@ -90,7 +90,7 @@ exports.getDoctorStats = async (userId) => {
   const cacheKey = `dashboard:doctor:${userId}:stats`;
 
   try {
-    let cachedStats = await getCacheValue(cacheKey);
+    const cachedStats = await getCacheValue(cacheKey);
     if (cachedStats) {
       logger.debug(`Returning cached doctor stats for user ${userId}`);
       return cachedStats;
@@ -167,7 +167,7 @@ exports.getReceptionistStats = async (userId) => {
   const cacheKey = `dashboard:receptionist:${userId}:stats`;
 
   try {
-    let cachedStats = await getCacheValue(cacheKey);
+    const cachedStats = await getCacheValue(cacheKey);
     if (cachedStats) {
       logger.debug(`Returning cached receptionist stats for user ${userId}`);
       return cachedStats;
@@ -214,7 +214,7 @@ exports.getPatientStats = async (userId) => {
   const cacheKey = `dashboard:patient:${userId}:stats`;
 
   try {
-    let cachedStats = await getCacheValue(cacheKey);
+    const cachedStats = await getCacheValue(cacheKey);
     if (cachedStats) {
       logger.debug(`Returning cached patient stats for user ${userId}`);
       return cachedStats;

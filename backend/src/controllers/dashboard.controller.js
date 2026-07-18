@@ -1,7 +1,7 @@
 'use strict';
 
 const dashboardService = require('../services/dashboard.service');
-const { sendSuccess, sendError } = require('../utils/apiResponse');
+const { sendSuccess } = require('../utils/apiResponse');
 
 /**
  * Get dashboard statistics
@@ -18,20 +18,20 @@ exports.getStats = async (req, res, next) => {
 
     // Get role-specific stats (with caching)
     switch (userRole) {
-      case 'admin':
-        stats = await dashboardService.getAdminStats(userId);
-        break;
-      case 'doctor':
-        stats = await dashboardService.getDoctorStats(userId);
-        break;
-      case 'receptionist':
-        stats = await dashboardService.getReceptionistStats(userId);
-        break;
-      case 'patient':
-        stats = await dashboardService.getPatientStats(userId);
-        break;
-      default:
-        stats = await dashboardService.getAdminStats(userId);
+    case 'admin':
+      stats = await dashboardService.getAdminStats(userId);
+      break;
+    case 'doctor':
+      stats = await dashboardService.getDoctorStats(userId);
+      break;
+    case 'receptionist':
+      stats = await dashboardService.getReceptionistStats(userId);
+      break;
+    case 'patient':
+      stats = await dashboardService.getPatientStats(userId);
+      break;
+    default:
+      stats = await dashboardService.getAdminStats(userId);
     }
 
     return sendSuccess(res, stats, 'Dashboard statistics retrieved successfully');

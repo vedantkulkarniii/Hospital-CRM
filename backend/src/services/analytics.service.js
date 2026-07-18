@@ -5,7 +5,6 @@ const Doctor = require('../models/Doctor');
 const Appointment = require('../models/Appointment');
 const Bill = require('../models/Bill');
 const Prescription = require('../models/Prescription');
-const logger = require('../utils/logger');
 
 /**
  * Analytics Service — all analytics and reporting business logic.
@@ -21,8 +20,8 @@ const getPatientDemographics = async ({ startDate, endDate } = {}) => {
 
   if (startDate || endDate) {
     query.createdAt = {};
-    if (startDate) query.createdAt.$gte = new Date(startDate);
-    if (endDate) query.createdAt.$lte = new Date(endDate);
+    if (startDate) {query.createdAt.$gte = new Date(startDate);}
+    if (endDate) {query.createdAt.$lte = new Date(endDate);}
   }
 
   const [totalPatients, byGender, byAgeGroup, newPatients] = await Promise.all([
@@ -71,15 +70,15 @@ const getDoctorPerformance = async ({ startDate, endDate } = {}) => {
 
   if (startDate || endDate) {
     query.createdAt = {};
-    if (startDate) query.createdAt.$gte = new Date(startDate);
-    if (endDate) query.createdAt.$lte = new Date(endDate);
+    if (startDate) {query.createdAt.$gte = new Date(startDate);}
+    if (endDate) {query.createdAt.$lte = new Date(endDate);}
   }
 
   const appointmentQuery = { ...query };
   if (startDate || endDate) {
     appointmentQuery.appointmentDate = {};
-    if (startDate) appointmentQuery.appointmentDate.$gte = new Date(startDate);
-    if (endDate) appointmentQuery.appointmentDate.$lte = new Date(endDate);
+    if (startDate) {appointmentQuery.appointmentDate.$gte = new Date(startDate);}
+    if (endDate) {appointmentQuery.appointmentDate.$lte = new Date(endDate);}
   }
 
   const [totalDoctors, appointmentsByDoctor, completedAppointments, averageRating] = await Promise.all([
@@ -145,8 +144,8 @@ const getAppointmentAnalytics = async ({ startDate, endDate } = {}) => {
 
   if (startDate || endDate) {
     query.appointmentDate = {};
-    if (startDate) query.appointmentDate.$gte = new Date(startDate);
-    if (endDate) query.appointmentDate.$lte = new Date(endDate);
+    if (startDate) {query.appointmentDate.$gte = new Date(startDate);}
+    if (endDate) {query.appointmentDate.$lte = new Date(endDate);}
   }
 
   const [
@@ -242,8 +241,8 @@ const getBillingRevenue = async ({ startDate, endDate } = {}) => {
 
   if (startDate || endDate) {
     query.issuedDate = {};
-    if (startDate) query.issuedDate.$gte = new Date(startDate);
-    if (endDate) query.issuedDate.$lte = new Date(endDate);
+    if (startDate) {query.issuedDate.$gte = new Date(startDate);}
+    if (endDate) {query.issuedDate.$lte = new Date(endDate);}
   }
 
   const [
@@ -325,8 +324,8 @@ const getPrescriptionTrends = async ({ startDate, endDate } = {}) => {
 
   if (startDate || endDate) {
     query.createdAt = {};
-    if (startDate) query.createdAt.$gte = new Date(startDate);
-    if (endDate) query.createdAt.$lte = new Date(endDate);
+    if (startDate) {query.createdAt.$gte = new Date(startDate);}
+    if (endDate) {query.createdAt.$lte = new Date(endDate);}
   }
 
   const [
@@ -387,8 +386,8 @@ const getPrescriptionTrends = async ({ startDate, endDate } = {}) => {
 const getFinancialSummary = async ({ startDate, endDate } = {}) => {
   const queryDate = {};
   if (startDate || endDate) {
-    if (startDate) queryDate.$gte = new Date(startDate);
-    if (endDate) queryDate.$lte = new Date(endDate);
+    if (startDate) {queryDate.$gte = new Date(startDate);}
+    if (endDate) {queryDate.$lte = new Date(endDate);}
   }
 
   const billQuery = queryDate ? { issuedDate: queryDate } : {};
@@ -449,8 +448,8 @@ const getOccupancyRate = async ({ startDate, endDate } = {}) => {
 
   if (startDate || endDate) {
     query.appointmentDate = {};
-    if (startDate) query.appointmentDate.$gte = new Date(startDate);
-    if (endDate) query.appointmentDate.$lte = new Date(endDate);
+    if (startDate) {query.appointmentDate.$gte = new Date(startDate);}
+    if (endDate) {query.appointmentDate.$lte = new Date(endDate);}
   }
 
   const [doctorSlots, appointmentsByDoctor] = await Promise.all([

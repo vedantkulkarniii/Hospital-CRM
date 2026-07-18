@@ -7,7 +7,8 @@ const connectDB = require('../../config/database');
 describe('Patient Routes Integration Tests', () => {
   let connection;
   let accessToken;
-  let userId;
+  // eslint-disable-next-line no-unused-vars
+  let _userId;
   const userData = {
     email: 'admin@hospital.com',
     password: 'Admin@12345',
@@ -32,7 +33,7 @@ describe('Patient Routes Integration Tests', () => {
     // Register admin user
     const res = await request(app).post('/api/auth/register').send(userData);
     accessToken = res.body.data.accessToken;
-    userId = res.body.data.user._id;
+    _userId = res.body.data.user._id;
   });
 
   afterEach(async () => {
@@ -120,7 +121,7 @@ describe('Patient Routes Integration Tests', () => {
         .expect(200);
 
       expect(res.body.success).toBe(true);
-      expect(res.body.data.patients.every(p => p.bloodGroup === 'O+')).toBe(true);
+      expect(res.body.data.patients.every((p) => p.bloodGroup === 'O+')).toBe(true);
     });
 
     it('should return 401 for unauthenticated request', async () => {

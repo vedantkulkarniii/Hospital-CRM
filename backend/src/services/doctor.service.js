@@ -262,11 +262,9 @@ const getDoctorsBySpecialization = async (specialization, { page = 1, limit = 10
  * Check doctor availability for a specific date and time.
  * @param {string} doctorId - doctor MongoDB ID
  * @param {Date} appointmentDate - date of appointment
- * @param {string} startTime - start time (HH:MM format)
- * @param {string} endTime - end time (HH:MM format)
  * @returns {Promise<boolean>}
  */
-const isDoctorAvailable = async (doctorId, appointmentDate, startTime, endTime) => {
+const isDoctorAvailable = async (doctorId, appointmentDate) => {
   const doctor = await Doctor.findById(doctorId);
   if (!doctor) {
     return false;

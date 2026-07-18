@@ -1,7 +1,6 @@
 'use strict';
 
 const crypto = require('crypto');
-const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const { signAccessToken, signRefreshToken, verifyRefreshToken } = require('../utils/jwt');
 const logger = require('../utils/logger');

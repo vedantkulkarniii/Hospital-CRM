@@ -136,7 +136,7 @@ const deleteCacheByPattern = async (pattern) => {
       return 0;
     }
     const keys = await redisClient.keys(pattern);
-    if (keys.length === 0) return 0;
+    if (keys.length === 0) {return 0;}
 
     let deleted = 0;
     for (const key of keys) {

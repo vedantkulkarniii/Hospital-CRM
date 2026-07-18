@@ -5,8 +5,6 @@ const express = require('express');
 const analyticsController = require('../controllers/analytics.controller');
 const authenticate = require('../middleware/authenticate');
 const authorize = require('../middleware/authorize');
-const validate = require('../middleware/validate');
-const reportValidators = require('../middleware/validators/report.validators');
 
 const router = express.Router();
 

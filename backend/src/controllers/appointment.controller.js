@@ -137,7 +137,7 @@ const getTodayAppointments = async (req, res, next) => {
 
     const meta = paginationMeta(total, currentPage, currentLimit);
 
-    return sendSuccess(res, 200, "Today's appointments retrieved successfully.", appointments, meta);
+    return sendSuccess(res, 200, 'Today\'s appointments retrieved successfully.', appointments, meta);
   } catch (error) {
     next(error);
   }

@@ -166,7 +166,7 @@ appointmentSchema.index({ isDeleted: 1 });
 
 // ─── Virtual: appointment duration in minutes ────────────────────────────────
 appointmentSchema.virtual('durationMinutes').get(function () {
-  if (!this.startTime || !this.endTime) return null;
+  if (!this.startTime || !this.endTime) {return null;}
   const [startHour, startMin] = this.startTime.split(':').map(Number);
   const [endHour, endMin] = this.endTime.split(':').map(Number);
   const startTotalMin = startHour * 60 + startMin;
@@ -176,14 +176,14 @@ appointmentSchema.virtual('durationMinutes').get(function () {
 
 // ─── Virtual: is appointment in past ──────────────────────────────────────────
 appointmentSchema.virtual('isPast').get(function () {
-  if (!this.appointmentDate) return null;
+  if (!this.appointmentDate) {return null;}
   const appointmentDateTime = new Date(this.appointmentDate);
   return appointmentDateTime < new Date();
 });
 
 // ─── Virtual: is appointment today ────────────────────────────────────────────
 appointmentSchema.virtual('isToday').get(function () {
-  if (!this.appointmentDate) return null;
+  if (!this.appointmentDate) {return null;}
   const today = new Date();
   const apptDate = new Date(this.appointmentDate);
   return (

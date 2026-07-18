@@ -108,7 +108,7 @@ class PerformanceMonitor {
         total: requests.length,
         averageResponseTime: Math.round(avgResponseTime),
         slowRequests: slowRequestCount,
-        slowRequestPercentage: ((slowRequestCount / requests.length) * 100).toFixed(2) + '%',
+        slowRequestPercentage: `${((slowRequestCount / requests.length) * 100).toFixed(2)  }%`,
       },
       slowQueries: {
         total: slowQueries.length,

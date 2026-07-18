@@ -8,7 +8,8 @@ const connectDB = require('../../config/database');
 
 describe('Appointment Routes Integration Tests', () => {
   let connection;
-  let accessToken;
+  // eslint-disable-next-line no-unused-vars
+  let _accessToken;
   let adminToken;
   let patientId;
   let doctorId;
@@ -36,7 +37,7 @@ describe('Appointment Routes Integration Tests', () => {
       lastName: 'Smith',
       role: 'doctor',
     });
-    accessToken = doctorUserRes.body.data.accessToken;
+    _accessToken = doctorUserRes.body.data.accessToken;
     const doctorUserId = doctorUserRes.body.data.user._id;
 
     // Create doctor profile
@@ -187,7 +188,7 @@ describe('Appointment Routes Integration Tests', () => {
         .expect(200);
 
       expect(res.body.success).toBe(true);
-      expect(res.body.data.appointments.every(a => a.status === 'scheduled')).toBe(true);
+      expect(res.body.data.appointments.every((a) => a.status === 'scheduled')).toBe(true);
     });
 
     it('should filter appointments by doctor', async () => {
@@ -197,7 +198,7 @@ describe('Appointment Routes Integration Tests', () => {
         .expect(200);
 
       expect(res.body.success).toBe(true);
-      expect(res.body.data.appointments.every(a => a.doctor._id === doctorId || a.doctor === doctorId)).toBe(true);
+      expect(res.body.data.appointments.every((a) => a.doctor._id === doctorId || a.doctor === doctorId)).toBe(true);
     });
   });
 
