@@ -4,15 +4,15 @@
 
 | Field | Value |
 |---|---|
-| Current Phase | Phase 12 — Testing (wrapping up) |
-| Current Sprint | Sprint 12 (in progress) |
+| Current Phase | Phase 13 — Optimization (in progress) |
+| Current Sprint | Sprint 13 (in progress) |
 | Total Tasks | 220 |
-| Completed Tasks | 197+ |
-| Remaining Tasks | 23 |
-| Total Commits | 65+ |
-| Completion % | 90% |
-| Last Completed Task | T-199 React component unit tests created |
-| Next Task | T-200 ESLint audit and fix warnings |
+| Completed Tasks | 206+ |
+| Remaining Tasks | 14 |
+| Total Commits | 75+ |
+| Completion % | 94% |
+| Last Completed Task | T-206 ESLint audit and fix warnings |
+| Next Task | Phase 14 — Deployment (T-208 Dockerfile backend) |
 
 ---
 
@@ -59,17 +59,17 @@
 - [x] T-198 Setup frontend test environment (Vitest)
 - [x] T-199 Write React component unit tests (Login, Patients page, Appointment form)
 
-### Phase 13 — Optimization 🟡 45%
+### Phase 13 — Optimization 🟡 82%
 - [x] T-197 MongoDB indexes on frequently queried fields (in models)
-- [ ] T-198 Redis caching for dashboard stats
+- [x] T-198 Redis caching for dashboard stats
 - [x] T-199 Request rate limiting (express-rate-limit configured)
 - [x] T-200 Helmet security headers (HSTS, CSP, X-Frame-Options configured)
 - [x] T-201 Response compression (compression middleware enabled)
 - [x] T-202 API pagination standardization (paginationHelper.js created)
 - [x] T-203 Query result caching middleware (cacheMiddleware.js created)
-- [ ] T-204 Frontend bundle optimization (code splitting, lazy loading)
-- [ ] T-205 React Query implementation
-- [ ] T-206 ESLint audit and fix warnings
+- [x] T-204 Frontend bundle optimization (code splitting, lazy loading)
+- [x] T-205 React Query implementation
+- [x] T-206 ESLint audit and fix warnings
 - [x] T-207 Structured API response format (apiResponse.js verified)
 
 ---
@@ -88,7 +88,7 @@
 | Phase 10 — Reports & Analytics | 13 | 13 | 100% |
 | Phase 11 — Inventory Management | 12 | 12 | 100% |
 | Phase 12 — Testing | 23 | 22 | 96% |
-| Phase 13 — Optimization | 11 | 5 | 45% |
+| Phase 13 — Optimization | 11 | 9 | 82% |
 | Phase 14 — Deployment | 13 | 0 | 0% |
 
 ---
