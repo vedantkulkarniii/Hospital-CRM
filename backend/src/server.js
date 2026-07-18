@@ -4,6 +4,7 @@ require('dotenv').config();
 const http = require('http');
 const app = require('./app');
 const connectDB = require('./config/database');
+const { initializeRedis, closeRedis } = require('./config/redis');
 const logger = require('./utils/logger');
 
 const PORT = process.env.PORT || 5000;
@@ -12,8 +13,12 @@ const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
 // Graceful shutdown handler
-const gracefulShutdown = (signal) => {
+const gracefulShutdown = async (signal) => {
   logger.info(`Received ${signal}. Shutting down gracefully...`);
+  
+  // Close Redis connection
+  await closeRedis();
+  
   server.close(() => {
     logger.info('HTTP server closed.');
     process.exit(0);
@@ -31,6 +36,9 @@ const start = async () => {
   try {
     // Connect to MongoDB
     await connectDB();
+
+    // Initialize Redis
+    await initializeRedis();
 
     // Start listening
     server.listen(PORT, () => {

@@ -1,11 +1,11 @@
 'use strict';
 
-const User = require('../models/User');
+const dashboardService = require('../services/dashboard.service');
 const { sendSuccess, sendError } = require('../utils/apiResponse');
 
 /**
  * Get dashboard statistics
- * Aggregates data: total patients, total doctors, appointments today, etc.
+ * Role-based stats with Redis caching
  * @route GET /api/dashboard/stats
  * @access Private
  */
@@ -14,40 +14,27 @@ exports.getStats = async (req, res, next) => {
     const userId = req.user.id;
     const userRole = req.user.role;
 
-    // Count total users by role
-    const stats = {
-      totalPatients: await User.countDocuments({ role: 'patient', isActive: true }),
-      totalDoctors: await User.countDocuments({ role: 'doctor', isActive: true }),
-      totalReceptionists: await User.countDocuments({ role: 'receptionist', isActive: true }),
-      totalAdmins: await User.countDocuments({ role: 'admin', isActive: true }),
-      appointmentsToday: 0, // Will be populated when Appointment model is created
-      appointmentsThisMonth: 0, // Will be populated when Appointment model is created
-      revenueThisMonth: 0, // Will be populated when Billing model is created
-    };
+    let stats;
 
-    // Role-based filtering
-    const roleBasedStats = {
-      admin: stats,
-      doctor: {
-        myAppointmentsToday: 0, // Will be populated when Appointment model is created
-        myPatientsCount: 0, // Will be populated when patient-doctor relationship is created
-        appointmentsThisMonth: 0,
-      },
-      receptionist: {
-        appointmentsToday: stats.appointmentsToday,
-        newPatientsThisMonth: 0,
-        pendingBills: 0,
-      },
-      patient: {
-        myAppointments: 0,
-        myPrescriptions: 0,
-        pendingPayments: 0,
-      },
-    };
+    // Get role-specific stats (with caching)
+    switch (userRole) {
+      case 'admin':
+        stats = await dashboardService.getAdminStats(userId);
+        break;
+      case 'doctor':
+        stats = await dashboardService.getDoctorStats(userId);
+        break;
+      case 'receptionist':
+        stats = await dashboardService.getReceptionistStats(userId);
+        break;
+      case 'patient':
+        stats = await dashboardService.getPatientStats(userId);
+        break;
+      default:
+        stats = await dashboardService.getAdminStats(userId);
+    }
 
-    const responseStats = roleBasedStats[userRole] || stats;
-
-    return sendSuccess(res, responseStats, 'Dashboard statistics retrieved successfully');
+    return sendSuccess(res, stats, 'Dashboard statistics retrieved successfully');
   } catch (error) {
     next(error);
   }
