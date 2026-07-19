@@ -55,13 +55,17 @@ const globalLimiter = rateLimit({
   keyGenerator: (req) => req.user?.id || req.ip, // Use user ID if authenticated
 });
 
-const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 5, // Stricter limit for auth
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: { success: false, message: 'Too many login attempts, please try again later.' },
-});
+// Auth limiter - DISABLED FOR DEVELOPMENT
+// const authLimiter = rateLimit({
+//   windowMs: 15 * 60 * 1000,
+//   max: 5, // Stricter limit for auth
+//   standardHeaders: true,
+//   legacyHeaders: false,
+//   message: { success: false, message: 'Too many login attempts, please try again later.' },
+// });
+
+// Bypass limiter for development
+const authLimiter = (req, res, next) => next();
 
 app.use('/api', globalLimiter);
 app.use('/api/auth/login', authLimiter);
